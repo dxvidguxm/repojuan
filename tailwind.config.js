@@ -12,19 +12,19 @@ export default {
             },
             colors: {
                 brand: {
-                    primary: '#3B82F6', // Blue 500
+                    primary: 'var(--brand-primary)', // Dynamic Blue
                     secondary: '#06B6D4', // Cyan 500
                     tertiary: '#6366F1', // Indigo 500
                     glow: '#60A5FA', // Blue 400
                 },
                 surface: {
-                    base: '#050608', // Deep black/blue
-                    card: '#111218', // Slightly lighter
+                    base: 'var(--bg-primary)', // Dynamic Background
+                    card: 'var(--card-bg)', // Dynamic Card
                     overlay: 'rgba(5, 6, 8, 0.8)', // Glassmorphism base
                 },
                 content: {
-                    primary: '#FFFFFF',
-                    secondary: 'rgba(255, 255, 255, 0.9)',
+                    primary: 'var(--text-primary)',
+                    secondary: 'var(--text-secondary)',
                     tertiary: 'rgba(255, 255, 255, 0.7)',
                 }
             },

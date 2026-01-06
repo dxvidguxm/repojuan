@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
@@ -37,7 +38,7 @@ const ImageCarousel = ({ images, className = "" }) => {
                 {/* Caption */}
                 <div className="absolute bottom-0 left-0 w-full p-6">
                     <p className="text-white font-orbitron font-bold text-lg">{images[currentIndex].title}</p>
-                    <p className="text-content-secondary text-sm">{images[currentIndex].description}</p>
+                    <p className="text-gray-200 text-sm">{images[currentIndex].description}</p>
                 </div>
             </div>
 
@@ -66,18 +67,18 @@ const ImageCarousel = ({ images, className = "" }) => {
                 ))}
             </div>
 
-            {/* Lightbox Overlay */}
+            {/* Lightbox Overlay with Portal */}
             <AnimatePresence>
-                {isLightboxOpen && (
+                {isLightboxOpen && createPortal(
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[1000] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
+                        className="fixed inset-0 z-[9999] bg-[var(--bg-primary)]/95 backdrop-blur-xl flex items-center justify-center p-4"
                     >
                         <button
                             onClick={() => setIsLightboxOpen(false)}
-                            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-[var(--text-primary)]/10 hover:bg-[var(--text-primary)]/20 flex items-center justify-center text-[var(--text-primary)] transition-colors z-50"
                         >
                             <X className="w-6 h-6" />
                         </button>
@@ -86,13 +87,14 @@ const ImageCarousel = ({ images, className = "" }) => {
                             <img
                                 src={images[currentIndex].src}
                                 alt={images[currentIndex].alt}
-                                className="max-w-full max-h-[85vh] rounded-lg shadow-2xl border border-white/10"
+                                className="max-w-full max-h-[85vh] rounded-lg shadow-2xl border border-[var(--border-color)]"
                             />
                             <div className="mt-4 text-center">
-                                <h3 className="text-xl font-orbitron font-bold text-white">{images[currentIndex].title}</h3>
+                                <h3 className="text-xl font-orbitron font-bold text-[var(--text-primary)]">{images[currentIndex].title}</h3>
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.div>,
+                    document.body
                 )}
             </AnimatePresence>
         </div>
