@@ -192,7 +192,7 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
                     </div>
 
                     <div className="space-y-2">
-                        <p className="text-white/70 text-xs font-bold uppercase tracking-[0.2em]">© 2026 Investigación y Desarrollo Agroindustrial</p>
+                        <p className="text-white/70 text-xs font-bold uppercase tracking-[0.2em]">© 2026 Investigación y Desarrollo</p>
                     </div>
                 </div>
             </footer>
