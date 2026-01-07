@@ -24,7 +24,7 @@ const practices = [
     { id: 'practicascaner', title: 'Escaneo y Resina', description: 'Digitalización 3D y manufactura de alta precisión en resina fotopolímera.', icon: <Zap />, path: '/practice/practicascaner', color: 'purple' },
     { id: 'practicacortelaser', title: 'Corte y Grabado Láser', description: 'Técnicas de sustracción de material mediante tecnología láser de CO2.', icon: <ArrowRight />, path: '/practice/practicacortelaser', color: 'blue' },
     { id: 'examen', title: 'Examen Interciclo', description: 'Diseño integral y elaboración de moldes para producción en serie.', icon: <Beaker />, path: '/practice/examen', color: 'cyan' },
-    { id: 'final', title: 'Proyecto Final', description: 'Próximamente', icon: <Rocket />, path: '#', color: 'pink' },
+    { id: 'final', title: 'Proyecto Final', description: 'Desarrollo integral de producto industrial y manufactura avanzada.', icon: <Rocket />, path: '/practice/proyectofinal', color: 'pink' },
 ];
 
 const containerVariants = {

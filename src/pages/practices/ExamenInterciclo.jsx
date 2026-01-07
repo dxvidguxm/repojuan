@@ -17,6 +17,7 @@ const ExamenInterciclo = () => {
                 { id: 'downloads', label: 'Recursos' }
             ]}
             prevLink="/practice/practicacortelaser"
+            nextLink="/practice/proyectofinal"
         >
             <div className="space-y-20">
                 {/* Introduction */}

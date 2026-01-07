@@ -24,7 +24,7 @@ export const driveAssets = {
     practica1_2_mp4: "https://drive.google.com/file/d/1JNCwKOqbePeLG_rxvOTjuJQQMG94NgV6/view?usp=sharing",
 
     // Practica 3
-    practica3_0_mp4: "https://drive.google.com/file/d/1KJ2O27S7S6jk4P6QNQXn9MPZ7Id3E2gI/view?usp=sharing",
+    practica3_0_mp4: "https://drive.google.com/file/d/1KJ2O27S7S6jk4P6QNQXn9MPZ7Id3E2:gI/view?usp=sharing",
 
     // Practica 4 (Corte Laser)
     practica4_1_mp4: "https://drive.google.com/file/d/1M0hfUeFIA6oDGvG3dwzlJpnX1BYln_g3/view?usp=sharing",
@@ -38,5 +38,22 @@ export const driveAssets = {
     practicaexamen9_mp4: "https://drive.google.com/file/d/1jzWo9u9yCEd9cbPFin-tlKRCeCpwE4cF/view?usp=sharing",
     practicallavero3_mp4: "https://drive.google.com/file/d/1uS_8inP5oZ3lURc74t9pEzBbwrJ6PHag/view?usp=sharing",
     practicallavero4_mp4: "https://drive.google.com/file/d/1wFQeYsrNnuCTuIIBr3ALOmMba7Wej4qe/view?usp=sharing",
-    videoexm_mp4: "https://drive.google.com/file/d/1wIVIzLt6VsrtBcmLsZHlla-CXFO8edE4/view?usp=sharing"
+    videoexm_mp4: "https://drive.google.com/file/d/1wIVIzLt6VsrtBcmLsZHlla-CXFO8edE4/view?usp=sharing",
+
+    // Proyecto Final
+    pro_fin_mp4_01: "https://drive.google.com/file/d/1z_Zxnjcf3RejdQDPlGU7yAQ0P9UULAHv/view?usp=drive_link",
+    pro_fin_mp4_02: "https://drive.google.com/file/d/14L7gp2LLJtM0t6FXi6DNaT2f-24ycCYY/view?usp=drive_link",
+    pro_fin_mp4_03: "https://drive.google.com/file/d/1MVM-z0chW4BvoB61diRU6tTTdtkFIwSw/view?usp=drive_link",
+    pro_fin_mp4_04: "https://drive.google.com/file/d/14L-AP07BUdlrrZJPNZRwgnFvKU164Xc4/view?usp=drive_link",
+    pro_fin_mp4_05: "https://drive.google.com/file/d/1J25urVQqVJsQlwym5Lsmcf7Z951Ado5p/view?usp=drive_link",
+    pro_fin_mp4_06: "https://drive.google.com/file/d/1H6KA_RI_xkZs5m_LkDoyUCx8D7C6s-1A/view?usp=drive_link",
+    pro_fin_mp4_07: "https://drive.google.com/file/d/1kZc-Q2IngI87yl8CMWLHJanDudjxI38x/view?usp=drive_link",
+    pro_fin_mp4_08: "https://drive.google.com/file/d/1gRPVti4wdkEkQeWL-lodkfNHwIrz06WB/view?usp=sharing",
+    pro_fin_mp4_09: "https://drive.google.com/file/d/1Zw3LjE76Q7-UmVHOt1IW-g6SWDs7E0nU/view?usp=sharing",
+
+    // Tapon Assets (Proyecto Final)
+    tapon_blend: "https://drive.google.com/file/d/1Kb3Evt3QmlbsSBH43lehXdxQpCxvr6SI/view?usp=sharing",
+    tapon_stl: "https://drive.google.com/file/d/1ZlVtGhbZdls7kas2uQxfSoq4AFmjIBug/view?usp=sharing",
+    mango_baston_stl: "https://drive.google.com/file/d/1cEYdI72vJOLQvTfNkxtiqNCIMc_ZBlQe/view?usp=sharing",
+    baston_completo_stl: "https://drive.google.com/file/d/1kMcDrfxX1UXcqjCUjmDNe5U60KSIWkJ8/view?usp=sharing"
 };

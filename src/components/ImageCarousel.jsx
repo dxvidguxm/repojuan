@@ -16,7 +16,7 @@ const ImageCarousel = ({ images, className = "" }) => {
     };
 
     return (
-        <div className={`relative group rounded-3xl overflow-hidden border border-white/10 bg-surface-card ${className}`}>
+        <div className={`relative group rounded-3xl overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-xl ${className}`}>
             {/* Main Image View */}
             <div className="relative aspect-video overflow-hidden cursor-zoom-in" onClick={() => setIsLightboxOpen(true)}>
                 <AnimatePresence mode="wait">

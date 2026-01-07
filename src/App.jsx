@@ -8,6 +8,7 @@ import Practica2 from './pages/practices/Practica2';
 import EscaneoResina from './pages/practices/EscaneoResina';
 import CorteLaser from './pages/practices/CorteLaser';
 import ExamenInterciclo from './pages/practices/ExamenInterciclo';
+import ProyectoFinal from './pages/practices/ProyectoFinal';
 
 import CustomCursor from './components/CustomCursor';
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/practice/practicascaner" element={<EscaneoResina />} />
           <Route path="/practice/practicacortelaser" element={<CorteLaser />} />
           <Route path="/practice/examen" element={<ExamenInterciclo />} />
+          <Route path="/practice/proyectofinal" element={<ProyectoFinal />} />
         </Routes>
       </AnimatePresence>
     </>
