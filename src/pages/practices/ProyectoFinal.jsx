@@ -492,11 +492,28 @@ const ProyectoFinal = () => {
 
                 {/* 13. Recursos */}
                 <section id="recursos" className="max-w-5xl mx-auto space-y-16">
-                    <div className="flex items-center gap-4 mb-12">
+                    <div className="flex items-center gap-4 mb-4">
                         <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400">
                             <Play className="w-6 h-6" />
                         </div>
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">13. Recursos del Proyecto</h2>
+                    </div>
+
+                    {/* Resultado Final (Video Especial) */}
+                    <div className="relative rounded-[2rem] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl mb-12">
+                        <div className="w-full aspect-video relative">
+                            <iframe
+                                src="https://drive.google.com/file/d/1vq_KqwNPIzxWmAVOxqXNi2Vhwe1-TS2l/preview"
+                                className="absolute inset-0 w-full h-full border-0"
+                                allow="autoplay; fullscreen"
+                                allowFullScreen
+                                title="Resultado Final - Bastón Inteligente"
+                            />
+                        </div>
+                        <div className="p-6 text-center bg-[var(--card-bg)]/50 backdrop-blur-md">
+                            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">Resultado Final</h3>
+                            <p className="text-[var(--text-secondary)]">Demostración completa del funcionamiento en entorno real.</p>
+                        </div>
                     </div>
 
                     {/* Videos Grid */}
@@ -610,6 +627,8 @@ const ProyectoFinal = () => {
                         </div>
                     </div>
                 </section>
+
+
 
                 {/* Final Navigation Button */}
                 <div className="flex justify-center pt-20">
