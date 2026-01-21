@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
-const ImageCarousel = ({ images, className = "" }) => {
+const ImageCarousel = ({ images, className = "", objectFit = "cover", autoHeight = false }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
@@ -18,7 +18,10 @@ const ImageCarousel = ({ images, className = "" }) => {
     return (
         <div className={`relative group rounded-3xl overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-xl ${className}`}>
             {/* Main Image View */}
-            <div className="relative aspect-video overflow-hidden cursor-zoom-in" onClick={() => setIsLightboxOpen(true)}>
+            <div
+                className={`relative overflow-hidden cursor-zoom-in ${autoHeight ? '' : 'aspect-video'}`}
+                onClick={() => setIsLightboxOpen(true)}
+            >
                 <AnimatePresence mode="wait">
                     <motion.img
                         key={currentIndex}
@@ -28,7 +31,7 @@ const ImageCarousel = ({ images, className = "" }) => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="w-full h-full object-cover"
+                        className={`w-full ${autoHeight ? 'h-auto' : 'h-full'} object-${objectFit}`}
                     />
                 </AnimatePresence>
 

@@ -146,7 +146,7 @@ const EscaneoResina = () => {
                     <div className="max-w-3xl mx-auto rounded-[2rem] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl relative group">
                         <div className="w-full aspect-video relative">
                             <iframe
-                                src={`https://drive.google.com/file/d/${driveAssets.practica3_0_mp4.match(/\/d\/(.+?)\//)[1]}/preview`}
+                                src={`https://drive.google.com/file/d/${driveAssets.practica3_0_mp4.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
                                 className="absolute inset-0 w-full h-full border-0"
                                 allow="autoplay"
                             />

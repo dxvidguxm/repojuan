@@ -377,7 +377,7 @@ const ProyectoFinal = () => {
                                     >
                                         <div className="aspect-video relative">
                                             <iframe
-                                                src={`https://drive.google.com/file/d/${m.video.match(/\/d\/(.+?)\//)[1]}/preview`}
+                                                src={`https://drive.google.com/file/d/${m.video.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
                                                 className="absolute inset-0 w-full h-full border-0"
                                                 allow="autoplay; fullscreen"
                                                 allowFullScreen
@@ -503,7 +503,7 @@ const ProyectoFinal = () => {
                     <div className="relative rounded-[2rem] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl mb-12">
                         <div className="w-full aspect-video relative">
                             <iframe
-                                src="https://drive.google.com/file/d/1vq_KqwNPIzxWmAVOxqXNi2Vhwe1-TS2l/preview"
+                                src="https://drive.google.com/file/d/1vq_KqwNPIzxWmAVOxqXNi2Vhwe1-TS2l/preview?mute=1"
                                 className="absolute inset-0 w-full h-full border-0"
                                 allow="autoplay; fullscreen"
                                 allowFullScreen
@@ -535,7 +535,7 @@ const ProyectoFinal = () => {
                             >
                                 <div className="w-full aspect-video relative">
                                     <iframe
-                                        src={`https://drive.google.com/file/d/${vid.src.match(/\/d\/(.+?)\//)[1]}/preview`}
+                                        src={`https://drive.google.com/file/d/${vid.src.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
                                         className="absolute inset-0 w-full h-full border-0"
                                         allow="autoplay; fullscreen"
                                         allowFullScreen

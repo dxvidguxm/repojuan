@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, CheckCircle2, ListChecks, Play, Image as ImageIcon, ArrowRight, Settings, Download } from 'lucide-react';
+import { Zap, CheckCircle2, ListChecks, Play, Image as ImageIcon, ArrowRight, Settings, Download, Box } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import PageLayout from '../../components/PageLayout';
 import { driveAssets, getDriveDirectLink } from '../../data/assets';
@@ -107,50 +107,65 @@ const CorteLaser = () => {
                         </div>
                         <h2 className="text-xl font-orbitron font-bold uppercase tracking-tight">Registro de Operación</h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-                        {[
-                            driveAssets.practica4_1_mp4,
-                            driveAssets.practica4_01_mp4,
-                            driveAssets.practica4_2_mp4,
-                            driveAssets.practica4_3_mp4
-                        ].map((vid, i) => {
-                            const isFirst = i === 0;
-                            return (
-                                <motion.div
-                                    key={i}
-                                    whileHover={{ y: -5 }}
-                                    className={`rounded-xl overflow-hidden border ${isFirst ? 'border-orange-500/50 bg-orange-500/5 shadow-orange-500/10' : 'border-[var(--border-color)] bg-[var(--card-bg)]'} shadow-lg group`}
-                                >
-                                    <div className="w-full aspect-[9/16] relative flex flex-col items-center justify-center">
-                                        {isFirst ? (
-                                            <div className="flex flex-col items-center gap-6 p-6 text-center">
-                                                <div className="w-20 h-20 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform duration-500">
-                                                    <Download className="w-10 h-10" />
-                                                </div>
-                                                <div className="space-y-2">
-                                                    <p className="text-sm font-orbitron font-bold text-[var(--text-primary)] uppercase tracking-wider">Video de Operación 4.1</p>
-                                                    <p className="text-[10px] text-[var(--text-secondary)] uppercase tracking-widest leading-relaxed">Vista previa no disponible en streaming debido al tamaño del archivo.</p>
-                                                </div>
-                                                <a
-                                                    href={getDriveDirectLink(vid)}
-                                                    className="px-6 py-3 rounded-full bg-orange-500 text-[var(--text-primary)] font-bold text-[10px] uppercase tracking-widest hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/20"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    Descargar Video
-                                                </a>
-                                            </div>
-                                        ) : (
-                                            <iframe
-                                                src={`https://drive.google.com/file/d/${vid.match(/\/d\/(.+?)\//)[1]}/preview`}
-                                                className="absolute inset-0 w-full h-full border-0"
-                                                allow="autoplay"
-                                            />
-                                        )}
+                    <div className="flex flex-col gap-12 items-center">
+                        {/* Top: Design File Card (Above the videos) */}
+                        <div className="w-full max-w-sm">
+                            <motion.div
+                                whileHover={{ y: -5 }}
+                                className="rounded-xl overflow-hidden border border-orange-500/50 bg-orange-500/5 shadow-orange-500/10 shadow-lg group"
+                            >
+                                <div className="w-full aspect-video relative flex flex-col items-center justify-center">
+                                    <div className="flex flex-col items-center gap-6 p-6 text-center">
+                                        <div className="w-20 h-20 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform duration-500">
+                                            <Box className="w-10 h-10" />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <p className="text-sm font-orbitron font-bold text-[var(--text-primary)] uppercase tracking-wider">Archivo de Diseño</p>
+                                            <p className="text-[10px] text-[var(--text-secondary)] uppercase tracking-widest leading-relaxed">Plano vectorial para corte y grabado.</p>
+                                        </div>
+                                        <a
+                                            href={getDriveDirectLink(driveAssets.moldefinal_stl)}
+                                            className="px-6 py-3 rounded-full bg-orange-500 text-[var(--text-primary)] font-bold text-[10px] uppercase tracking-widest hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/20"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Descargar Archivo
+                                        </a>
                                     </div>
-                                </motion.div>
-                            );
-                        })}
+                                </div>
+                            </motion.div>
+                        </div>
+
+                        {/* Bottom: Two Videos Side by Side */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+                            {/* Left Video: New Video provided by user */}
+                            <motion.div
+                                whileHover={{ y: -5 }}
+                                className="rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-lg group"
+                            >
+                                <div className="w-full aspect-[9/16] relative">
+                                    <iframe
+                                        src="https://drive.google.com/file/d/1CU7b1SeN-thznGyl2yFJRds7pfqqpQdx/preview?mute=1"
+                                        className="absolute inset-0 w-full h-full border-0"
+                                        allow="autoplay"
+                                    />
+                                </div>
+                            </motion.div>
+
+                            {/* Right Video: Current Video (practica4_3) */}
+                            <motion.div
+                                whileHover={{ y: -5 }}
+                                className="rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-lg group"
+                            >
+                                <div className="w-full aspect-[9/16] relative">
+                                    <iframe
+                                        src={`https://drive.google.com/file/d/${driveAssets.practica4_3_mp4.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
+                                        className="absolute inset-0 w-full h-full border-0"
+                                        allow="autoplay"
+                                    />
+                                </div>
+                            </motion.div>
+                        </div>
                     </div>
                 </section>
 

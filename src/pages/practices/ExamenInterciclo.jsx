@@ -21,12 +21,13 @@ const ExamenInterciclo = () => {
         >
             <div className="space-y-20">
                 {/* Introduction */}
-                <section id="intro" className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <section id="intro" className="space-y-12">
+                    {/* Contexto Global & Desafío */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="space-y-6"
+                        className="max-w-4xl mx-auto space-y-6"
                     >
                         <div className="flex items-center gap-4">
                             <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
@@ -41,14 +42,13 @@ const ExamenInterciclo = () => {
                             <h4 className="text-[var(--text-primary)] font-bold mb-2 text-sm uppercase tracking-wider">Desafío Técnico: TPU Flex</h4>
                             <p className="text-[var(--text-secondary)] text-xs font-medium leading-relaxed">El uso de poliuretano termoplástico (TPU) requiere una calibración precisa de la retracción y velocidad para evitar el atascamiento del extrusor debido a su elasticidad.</p>
                         </div>
-
                     </motion.div>
 
-                    {/* Memoria Técnica P.1 - P.6 (Restored) */}
+                    {/* Memoria Técnica P.1 - P.6 */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        className="col-span-1 lg:col-span-2 space-y-8"
+                        className="space-y-8"
                     >
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)] text-center mb-8">Memoria Técnica del Proyecto</h2>
 
@@ -91,11 +91,12 @@ const ExamenInterciclo = () => {
                         </div>
                     </motion.div>
 
+                    {/* Resultados */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="rounded-[2.5rem] p-8 bg-[var(--card-bg)] border border-[var(--border-color)] space-y-6"
+                        className="max-w-4xl mx-auto rounded-[2.5rem] p-8 bg-[var(--card-bg)] border border-[var(--border-color)] space-y-6"
                     >
                         <h3 className="text-lg font-orbitron font-bold text-blue-400 uppercase tracking-widest text-center">Resultados Esperados</h3>
                         <div className="space-y-4">
@@ -188,28 +189,50 @@ const ExamenInterciclo = () => {
                             <div className="w-4 h-1 rounded-full bg-white/10" />
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-[var(--text-secondary)]">
-                        {[
-                            { src: driveAssets.exi4_mp4, label: 'Proceso de Vaciado' },
-                            { src: driveAssets.exi13_mp4, label: 'Ensamblaje del Molde' },
-                            { src: driveAssets.videoexm_mp4, label: 'Resultado Final' }
-                        ].map((vid, i) => (
-                            <motion.div
-                                key={i}
-                                whileHover={{ scale: 1.02 }}
-                                className="rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-lg"
-                            >
-                                <div className="w-full aspect-[4/5] relative">
-                                    <iframe
-                                        src={`https://drive.google.com/file/d/${vid.src.match(/\/d\/(.+?)\//)[1]}/preview`}
-                                        className="absolute inset-0 w-full h-full border-0"
-                                        allow="autoplay"
-                                        title={vid.label}
-                                    />
-                                </div>
-                                <div className="p-4 text-center text-[10px] font-bold uppercase tracking-widest text-[var(--text-secondary)]">{vid.label}</div>
-                            </motion.div>
-                        ))}
+                    <div className="flex flex-col gap-12">
+                        {/* Featured Video: Proceso de Impresión (Full Width) */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="rounded-3xl overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl max-w-5xl mx-auto w-full group"
+                        >
+                            <div className="w-full aspect-video relative">
+                                <iframe
+                                    src={`https://drive.google.com/file/d/${driveAssets.exi_new_mp4.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
+                                    className="absolute inset-0 w-full h-full border-0"
+                                    allow="autoplay"
+                                    title="Proceso de Impresión"
+                                />
+                            </div>
+                            <div className="p-6 text-center border-t border-[var(--border-color)]">
+                                <h3 className="text-sm font-orbitron font-bold uppercase tracking-widest text-blue-400">Proceso de Elaboración / Impresión</h3>
+                            </div>
+                        </motion.div>
+
+                        {/* Other Videos Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-[var(--text-secondary)]">
+                            {[
+                                { src: driveAssets.exi4_mp4, label: 'Proceso de Vaciado' },
+                                { src: driveAssets.exi13_mp4, label: 'Ensamblaje del Molde' },
+                                { src: driveAssets.videoexm_mp4, label: 'Resultado Final' }
+                            ].map((vid, i) => (
+                                <motion.div
+                                    key={i}
+                                    whileHover={{ scale: 1.02 }}
+                                    className="rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-lg"
+                                >
+                                    <div className="w-full aspect-[4/5] relative">
+                                        <iframe
+                                            src={`https://drive.google.com/file/d/${vid.src.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
+                                            className="absolute inset-0 w-full h-full border-0"
+                                            allow="autoplay"
+                                            title={vid.label}
+                                        />
+                                    </div>
+                                    <div className="p-4 text-center text-[10px] font-bold uppercase tracking-widest text-[var(--text-secondary)]">{vid.label}</div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </section>
 
@@ -249,7 +272,7 @@ const ExamenInterciclo = () => {
 
                     <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 text-[var(--text-secondary)]">
                         {[
-                            { label: 'Cara Frontal (STL)', file: getDriveDirectLink(driveAssets.moldefinal_stl), name: 'moldefinal.stl', icon: <Box /> },
+                            { label: 'Cara Frontal (STL)', file: '/assets/models/cara1.stl', name: 'cara1.stl', icon: <Box /> },
                             { label: 'Cara Posterior (STL)', file: '/assets/models/cara2.stl', name: 'cara2.stl', icon: <Box /> },
                             { label: 'Archivo Fuente (BLEND)', file: getDriveDirectLink(driveAssets.molde_blend), name: 'molde.blend', icon: <FileText /> },
                             { label: 'Informe Técnico (PDF)', file: '/assets/docs/Informe Examen Interciclo.pdf', name: 'Informe_Examen_Interciclo.pdf', icon: <Download /> }

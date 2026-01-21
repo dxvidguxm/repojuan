@@ -16,7 +16,8 @@ export const driveAssets = {
     // Examen Interciclo
     exi4_mp4: "https://drive.google.com/file/d/14x1R0Lm94ylSsk_nReb16_AVUCIh_fSZ/view?usp=sharing",
     exi13_mp4: "https://drive.google.com/file/d/17TynzjzUrfcz-77q4S1Qr_dg7qhfQVIv/view?usp=sharing",
-    molde_blend: "https://drive.google.com/file/d/1C8LxY_1uTj4pp4jnBwtIbtMOoON_ct8s/view?usp=sharing",
+    exi_new_mp4: "https://drive.google.com/file/d/1ykPZyOU7wJi-DYgQuKjjvLtx797iROKV/view?usp=drive_link",
+    molde_blend: "https://drive.google.com/file/d/1wIVIzLt6VsrtBcmLsZHlla-CXFO8edE4/view?usp=sharing",
     moldefinal_stl: "https://drive.google.com/file/d/1CU7b1SeN-thznGyl2yFJRds7pfqqpQdx/view?usp=sharing",
 
     // Practica 1
@@ -24,7 +25,7 @@ export const driveAssets = {
     practica1_2_mp4: "https://drive.google.com/file/d/1JNCwKOqbePeLG_rxvOTjuJQQMG94NgV6/view?usp=sharing",
 
     // Practica 3
-    practica3_0_mp4: "https://drive.google.com/file/d/1KJ2O27S7S6jk4P6QNQXn9MPZ7Id3E2:gI/view?usp=sharing",
+    practica3_0_mp4: "https://drive.google.com/file/d/1FIIs7GpuTdMUpTeteRKRreN4DTfEF1wK/view?usp=sharing",
 
     // Practica 4 (Corte Laser)
     practica4_1_mp4: "https://drive.google.com/file/d/1M0hfUeFIA6oDGvG3dwzlJpnX1BYln_g3/view?usp=sharing",
@@ -38,7 +39,7 @@ export const driveAssets = {
     practicaexamen9_mp4: "https://drive.google.com/file/d/1jzWo9u9yCEd9cbPFin-tlKRCeCpwE4cF/view?usp=sharing",
     practicallavero3_mp4: "https://drive.google.com/file/d/1uS_8inP5oZ3lURc74t9pEzBbwrJ6PHag/view?usp=sharing",
     practicallavero4_mp4: "https://drive.google.com/file/d/1wFQeYsrNnuCTuIIBr3ALOmMba7Wej4qe/view?usp=sharing",
-    videoexm_mp4: "https://drive.google.com/file/d/1wIVIzLt6VsrtBcmLsZHlla-CXFO8edE4/view?usp=sharing",
+    videoexm_mp4: "https://drive.google.com/file/d/1C8LxY_1uTj4pp4jnBwtIbtMOoON_ct8s/view?usp=sharing",
 
     // Proyecto Final
     pro_fin_mp4_01: "https://drive.google.com/file/d/1z_Zxnjcf3RejdQDPlGU7yAQ0P9UULAHv/view?usp=drive_link",

@@ -80,7 +80,7 @@ const Practica1 = () => {
                 </section>
 
                 {/* Section: Objetivos (ImageCarousel Placeholder) */}
-                <section id="objetivos" className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <section id="objetivos" className="max-w-4xl mx-auto">
                     <div className="space-y-6">
                         <div className="w-14 h-14 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
                             <Layers className="w-7 h-7" />
@@ -101,18 +101,7 @@ const Practica1 = () => {
                             </li>
                         </ul>
                     </div>
-                    {/* Visual Carousel for Objectives */}
-                    <div className="relative">
-                        <div className="absolute inset-0 bg-brand-primary/20 blur-3xl -z-10" />
-                        <ImageCarousel
-                            images={[
-                                { src: '/assets/img/Practica1.3.jpg', alt: 'Objective 1', title: 'Altura de Capa', description: 'Comparativa de resoluciones.' },
-                                { src: '/assets/img/Practica1.5.jpg', alt: 'Objective 2', title: 'Densidad Relleno', description: 'Impacto estructural.' },
-                                { src: '/assets/img/Practica1.4.jpg', alt: 'Objective 3', title: 'Temperatura', description: 'Configuración térmica.' }
-                            ]}
-                            className="shadow-2xl shadow-brand-primary/20 max-w-sm mx-auto"
-                        />
-                    </div>
+
                 </section>
 
                 {/* Section: Recursos Técnicos (DescriptionList) */}
@@ -141,44 +130,13 @@ const Practica1 = () => {
                     </ol>
                 </section>
 
-                {/* Media: Videos */}
-                <section id="video" className="space-y-12">
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
-                            <Play className="w-6 h-6" />
-                        </div>
-                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">Evidencia en Video</h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {[
-                            driveAssets.practica1_1_mp4,
-                            driveAssets.practica1_2_mp4
-                        ].map((vid, i) => (
-                            <motion.div
-                                key={i}
-                                whileHover={{ scale: 1.02 }}
-                                className="group relative rounded-[2rem] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl"
-                            >
-                                <div className="w-full aspect-video relative">
-                                    <iframe
-                                        src={`https://drive.google.com/file/d/${vid.match(/\/d\/(.+?)\//)[1]}/preview`}
-                                        className="absolute inset-0 w-full h-full border-0"
-                                        allow="autoplay"
-                                    />
-                                </div>
-                                <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-[var(--text-secondary)] rounded-[2rem]"></div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </section>
-
                 {/* Gallery */}
                 <section id="galeria" className="space-y-12">
                     <div className="text-center">
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)] mb-4">Galería de Resultados</h2>
                         <p className="text-[var(--text-secondary)]">Capturas del proceso de configuración y resultado impreso.</p>
                     </div>
-                    <ImageCarousel images={galleryImages} className="max-w-4xl mx-auto shadow-2xl shadow-brand-tertiary/10" />
+                    <ImageCarousel images={galleryImages} autoHeight={true} className="max-w-4xl mx-auto shadow-2xl shadow-brand-tertiary/10" />
                 </section>
 
                 {/* Conclusion */}
