@@ -136,7 +136,7 @@ const Practica1 = () => {
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)] mb-4">Galería de Resultados</h2>
                         <p className="text-[var(--text-secondary)]">Capturas del proceso de configuración y resultado impreso.</p>
                     </div>
-                    <ImageCarousel images={galleryImages} autoHeight={true} className="max-w-4xl mx-auto shadow-2xl shadow-brand-tertiary/10" />
+                    <ImageCarousel images={galleryImages} aspect="aspect-square" className="max-w-3xl mx-auto shadow-2xl shadow-brand-tertiary/10" />
                 </section>
 
                 {/* Conclusion */}
