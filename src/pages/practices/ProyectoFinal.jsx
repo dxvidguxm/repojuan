@@ -503,7 +503,7 @@ const ProyectoFinal = () => {
                     <div className="relative rounded-[2rem] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl mb-12">
                         <div className="w-full aspect-video relative">
                             <iframe
-                                src="https://drive.google.com/file/d/1vq_KqwNPIzxWmAVOxqXNi2Vhwe1-TS2l/preview?mute=1"
+                                src={`https://drive.google.com/file/d/${driveAssets.pro_fin_video_final.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
                                 className="absolute inset-0 w-full h-full border-0"
                                 allow="autoplay; fullscreen"
                                 allowFullScreen
@@ -526,7 +526,9 @@ const ProyectoFinal = () => {
                             { src: driveAssets.pro_fin_mp4_05, label: 'Video 05' },
                             { src: driveAssets.pro_fin_mp4_06, label: 'Video 06' },
                             { src: driveAssets.pro_fin_mp4_07, label: 'Video 07' },
-                            { src: driveAssets.pro_fin_mp4_08, label: 'Video 08' }
+                            { src: driveAssets.pro_fin_mp4_08, label: 'Video 08' },
+                            { src: driveAssets.pro_fin_mp4_09, label: 'Video 09' },
+                            { src: driveAssets.pro_fin_video_final, label: 'Video Final' }
                         ].map((vid, i) => (
                             <motion.div
                                 key={i}
