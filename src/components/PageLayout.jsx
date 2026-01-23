@@ -244,9 +244,9 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
                     <div className="max-w-7xl mx-auto px-6 md:px-12">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                             {/* Left Column: Mission */}
-                            <div className="space-y-6 max-w-2xl">
-                                <h3 className="text-sm font-black uppercase tracking-[0.4em] text-blue-400">Nuestra Misión</h3>
-                                <p className="text-white/80 text-xl md:text-2xl font-light leading-relaxed">
+                            <div className="space-y-4 max-w-lg">
+                                <h3 className="font-bold text-white uppercase text-xs tracking-widest">Nuestra Misión</h3>
+                                <p className="text-[10px] text-white/60 uppercase tracking-wider font-medium leading-relaxed">
                                     Desarrollar soluciones integrales que fusionen la eficiencia técnica con la sostenibilidad social. En esta plataforma presentamos los resultados de un proceso riguroso de investigación y fabricación digital.
                                 </p>
                             </div>
