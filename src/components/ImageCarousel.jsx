@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
-const ImageCarousel = ({ images, className = "", objectFit = "cover", autoHeight = false, aspect = "aspect-video" }) => {
+const ImageCarousel = ({ images, className = "", objectFit = "cover", autoHeight = false, aspect = "aspect-video", autoplay = true, autoplayInterval = 5000 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
@@ -15,8 +15,20 @@ const ImageCarousel = ({ images, className = "", objectFit = "cover", autoHeight
         setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
     };
 
+    useEffect(() => {
+        if (!autoplay || isLightboxOpen) return;
+
+        const interval = setInterval(() => {
+            nextSlide();
+        }, autoplayInterval);
+
+        return () => clearInterval(interval);
+    }, [autoplay, autoplayInterval, isLightboxOpen, images.length]);
+
     return (
-        <div className={`relative group rounded-3xl overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-xl ${className}`}>
+        <div
+            className={`relative group rounded-3xl overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-xl ${className}`}
+        >
             {/* Main Image View */}
             <div
                 className={`relative overflow-hidden cursor-zoom-in ${autoHeight ? '' : aspect}`}

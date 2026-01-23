@@ -4,7 +4,7 @@ import { ChevronRight, ChevronLeft, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const SideMenu = ({ sections, prevLink, nextLink }) => {
-    const [isOpen, setIsOpen] = useState(window.innerWidth > 768);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] flex flex-row-reverse items-center">

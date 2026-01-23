@@ -61,19 +61,19 @@ const Practica1 = () => {
                 </section>
 
                 {/* Section: Resultados de Aprendizaje (Restored) */}
-                <section className="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-[2rem] p-8 transition-colors duration-300">
+                <section className="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-[var(--radius-main)] p-8 transition-colors duration-300">
                     <h2 className="text-2xl font-orbitron font-bold text-[var(--text-primary)] mb-6">Resultados de aprendizaje esperados</h2>
                     <div className="space-y-4">
                         <div className="flex gap-4 group">
-                            <div className="text-sm font-black text-brand-primary pt-1">SO2</div>
+                            <div className="text-sm font-black text-[var(--brand-navy)] dark:text-blue-400 pt-1">SO2</div>
                             <p className="text-[var(--text-secondary)] text-sm">Habilidad para aplicar el diseño de Ingeniería Industrial para producir soluciones que satisfagan necesidades específicas, teniendo en consideración la salud pública, la seguridad y el bienestar, así como factores globales, culturales, sociales, medioambientales y económicos.</p>
                         </div>
                         <div className="flex gap-4 group">
-                            <div className="text-sm font-black text-brand-primary pt-1">SO4</div>
+                            <div className="text-sm font-black text-[var(--brand-navy)] dark:text-blue-400 pt-1">SO4</div>
                             <p className="text-[var(--text-secondary)] text-sm">Habilidad para reconocer las responsabilidades éticas y profesionales en situaciones de Ingeniería Industrial y emitir juicios fundamentados, que tengan en consideración el impacto de las soluciones de ingeniería en el contexto global, económico, medioambiental y social.</p>
                         </div>
                         <div className="flex gap-4 group">
-                            <div className="text-sm font-black text-brand-primary pt-1">SO6</div>
+                            <div className="text-sm font-black text-[var(--brand-navy)] dark:text-blue-400 pt-1">SO6</div>
                             <p className="text-[var(--text-secondary)] text-sm">Habilidad para desarrollar y llevar a cabo experimentos apropiados, analizar e interpretar datos y uso criterio de ingeniería para obtener conclusiones.</p>
                         </div>
                     </div>
@@ -82,22 +82,22 @@ const Practica1 = () => {
                 {/* Section: Objetivos (ImageCarousel Placeholder) */}
                 <section id="objetivos" className="max-w-4xl mx-auto">
                     <div className="space-y-6">
-                        <div className="w-14 h-14 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                        <div className="w-14 h-14 rounded-xl bg-[var(--brand-navy)]/10 flex items-center justify-center text-[var(--brand-navy)]">
                             <Layers className="w-7 h-7" />
                         </div>
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">Objetivos de la Práctica</h2>
                         <ul className="space-y-3">
                             <li className="flex items-start gap-4 p-4 rounded-xl bg-surface-card/50 border border-[var(--border-color)] hover:border-brand-primary/30 transition-colors">
-                                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-primary/20 text-brand-primary flex items-center justify-center text-xs font-bold">1</span>
-                                <p className="text-content-secondary text-sm">Comprender la influencia de la altura de capa en la resolución y tiempo de impresión.</p>
+                                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--brand-navy)]/20 text-[var(--brand-navy)] dark:text-blue-400 flex items-center justify-center text-xs font-bold">1</span>
+                                <p className="text-[var(--text-secondary)] text-sm">Comprender la influencia de la altura de capa en la resolución y tiempo de impresión.</p>
                             </li>
                             <li className="flex items-start gap-4 p-4 rounded-xl bg-surface-card/50 border border-[var(--border-color)] hover:border-brand-primary/30 transition-colors">
-                                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-primary/20 text-brand-primary flex items-center justify-center text-xs font-bold">2</span>
-                                <p className="text-content-secondary text-sm">Analizar cómo la densidad de relleno impacta la resistencia mecánica.</p>
+                                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--brand-navy)]/20 text-[var(--brand-navy)] dark:text-blue-400 flex items-center justify-center text-xs font-bold">2</span>
+                                <p className="text-[var(--text-secondary)] text-sm">Analizar cómo la densidad de relleno impacta la resistencia mecánica.</p>
                             </li>
                             <li className="flex items-start gap-4 p-4 rounded-xl bg-surface-card/50 border border-[var(--border-color)] hover:border-brand-primary/30 transition-colors">
-                                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-primary/20 text-brand-primary flex items-center justify-center text-xs font-bold">3</span>
-                                <p className="text-content-secondary text-sm">Identificar fallos comunes derivados de una mala configuración de temperatura.</p>
+                                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--brand-navy)]/20 text-[var(--brand-navy)] dark:text-blue-400 flex items-center justify-center text-xs font-bold">3</span>
+                                <p className="text-[var(--text-secondary)] text-sm">Identificar fallos comunes derivados de una mala configuración de temperatura.</p>
                             </li>
                         </ul>
                     </div>
@@ -136,30 +136,29 @@ const Practica1 = () => {
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)] mb-4">Galería de Resultados</h2>
                         <p className="text-[var(--text-secondary)]">Capturas del proceso de configuración y resultado impreso.</p>
                     </div>
-                    <ImageCarousel images={galleryImages} aspect="aspect-[4/5]" className="max-w-xl mx-auto shadow-2xl shadow-brand-tertiary/10" />
+                    <ImageCarousel images={galleryImages} aspect="aspect-[4/5]" className="max-w-xl mx-auto shadow-2xl" />
                 </section>
 
                 {/* Conclusion */}
-                <section className="p-10 md:p-16 rounded-[3rem] bg-gradient-to-br from-brand-tertiary/20 to-brand-primary/20 border border-brand-primary/20 relative overflow-hidden text-center">
-                    <div className="absolute inset-0 bg-surface-card/80 backdrop-blur-sm z-0" />
-                    <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">Conclusión Técnica</h2>
-                        <p className="text-xl font-light leading-relaxed text-content-primary italic">
-                            "La práctica permitió comprender el funcionamiento de los slicers y la importancia de configurar correctamente los parámetros de impresión para optimizar tiempo, material y calidad del modelo. Se evidenció que cambios en el relleno, la geometría y el volumen influyen directamente en el consumo de filamento y en la duración del proceso. Además, la comparación entre configuraciones mostró cómo las decisiones tomadas en el software afectan la eficiencia y el uso responsable de los recursos. En general, se cumplió el objetivo de familiarizarse con el programa y analizar cómo cada parámetro modifica el comportamiento de una impresión 3D con filamento."
-                        </p>
-                    </div>
+                {/* Conclusion */}
+                <section className="conclusion-standard">
+                    <h2>Conclusión Técnica</h2>
+                    <p>
+                        "La práctica permitió comprender el funcionamiento de los slicers y la importancia de configurar correctamente los parámetros de impresión para optimizar tiempo, material y calidad del modelo. Se evidenció que cambios en el relleno, la geometría y el volumen influyen directamente en el consumo de filamento y en la duración del proceso. Además, la comparación entre configuraciones mostró cómo las decisiones tomadas en el software afectan la eficiencia y el uso responsable de los recursos. En general, se cumplió el objetivo de familiarizarse con el programa y analizar cómo cada parámetro modifica el comportamiento de una impresión 3D con filamento."
+                    </p>
                 </section>
 
                 {/* Next Button */}
                 <div className="flex justify-center pt-8">
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                    <button
                         onClick={() => navigate('/practice/practica2')}
-                        className="group flex items-center gap-4 px-10 py-5 rounded-full bg-brand-primary text-[var(--text-primary)] font-orbitron font-bold text-lg hover:bg-brand-glow hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] transition-all duration-300"
+                        className="btn-premium group"
                     >
-                        Siguiente Práctica <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
+                        <span className="btn-premium-text">
+                            Siguiente Práctica
+                        </span>
+                        <ArrowRight className="relative z-10 w-5 h-5 text-[var(--text-primary)] group-hover:text-white group-hover:translate-x-1 transition-all duration-700" />
+                    </button>
                 </div>
             </div>
         </PageLayout>

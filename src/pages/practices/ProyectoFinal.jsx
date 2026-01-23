@@ -18,14 +18,18 @@ import {
     Users,
     Lightbulb,
     ArrowUpCircle,
-    CheckCircle2
+    CheckCircle2,
+    ArrowRight,
+    Home
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import PageLayout from '../../components/PageLayout';
 import { driveAssets, getDriveDirectLink } from '../../data/assets';
 import ImageCarousel from '../../components/ImageCarousel';
 import RevealText from '../../components/RevealText';
 
 const ProyectoFinal = () => {
+    const navigate = useNavigate();
     const galleryImages = [
         { src: '/assets/img/PF_Result1.jpg', alt: 'Proyecto Final 1', title: 'Prototipo Final', description: 'Vista General del proyecto terminado.' },
         { src: '/assets/img/PF_Result2.jpg', alt: 'Proyecto Final 2', title: 'Detalle Técnico', description: 'Acercamiento a componentes críticos.' },
@@ -60,9 +64,9 @@ const ProyectoFinal = () => {
         >
             <div className="space-y-24 pb-20">
                 {/* 1. Introducción */}
-                <section id="intro" className="max-w-4xl mx-auto space-y-8">
+                <section id="intro" className="max-w-6xl mx-auto space-y-8">
                     <div className="flex items-center gap-4 mb-6">
-                        <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400">
+                        <div className="w-12 h-12 rounded-2xl bg-[var(--brand-navy)]/10 flex items-center justify-center text-[var(--brand-navy)] dark:text-blue-400">
                             <Rocket className="w-6 h-6" />
                         </div>
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">1. Introducción</h2>
@@ -88,18 +92,18 @@ const ProyectoFinal = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             className="relative group"
                         >
-                            <div className="absolute inset-0 bg-blue-500/10 blur-3xl group-hover:bg-blue-500/20 transition-colors -z-10" />
+                            <div className="absolute inset-0 bg-[var(--brand-navy)]/10 blur-[80px] group-hover:bg-[var(--brand-navy)]/20 transition-colors -z-10" />
                             <img
                                 src="/assets/img/proyecto_final/img_introduccion.jfif"
                                 alt="Bastón Inteligente Prototipo"
-                                className="w-full h-auto rounded-[2.5rem] shadow-2xl border border-[var(--border-color)] group-hover:border-blue-500/30 transition-all duration-500"
+                                className="w-full max-w-sm mx-auto h-auto rounded-[var(--radius-main)] shadow-2xl border border-[var(--border-color)] group-hover:border-[var(--brand-navy)]/30 transition-all duration-500"
                             />
                         </motion.div>
                     </div>
                 </section>
 
                 {/* 2. Planteamiento del problema */}
-                <section id="problema" className="max-w-4xl mx-auto space-y-8">
+                <section id="problema" className="max-w-6xl mx-auto space-y-8">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-12 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-400">
                             <AlertTriangle className="w-6 h-6" />
@@ -107,12 +111,13 @@ const ProyectoFinal = () => {
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">2. Planteamiento del Problema</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="bg-[var(--card-bg)] p-8 rounded-3xl border border-[var(--border-color)]">
-                            <h3 className="text-xl font-bold mb-4 text-blue-400">Riesgos Constantes</h3>
+                        <div className="bg-[var(--card-bg)] p-8 rounded-[var(--radius-main)] border border-[var(--border-color)] shadow-xl relative overflow-hidden group">
+                            <div className="absolute top-0 left-0 w-1 h-full bg-[var(--brand-red)] opacity-50" />
+                            <h3 className="text-xl font-bold mb-4 text-[var(--brand-navy)] dark:text-blue-400">Riesgos Constantes</h3>
                             <ul className="space-y-3 text-[var(--text-secondary)]">
-                                <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-red-400 shrink-0" /> Desniveles y escaleras descendentes.</li>
-                                <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-red-400 shrink-0" /> Superficies mojadas o charcos no detectables físicamente.</li>
-                                <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-red-400 shrink-0" /> Huecos en la vía pública.</li>
+                                <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-[var(--brand-red)] shrink-0" /> Desniveles y escaleras descendentes.</li>
+                                <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-[var(--brand-red)] shrink-0" /> Superficies mojadas o charcos no detectables físicamente.</li>
+                                <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-[var(--brand-red)] shrink-0" /> Huecos en la vía pública.</li>
                             </ul>
                         </div>
                         <div className="flex flex-col justify-center space-y-4">
@@ -124,7 +129,7 @@ const ProyectoFinal = () => {
                 </section>
 
                 {/* 3. Objetivos del proyecto */}
-                <section id="objetivos" className="max-w-4xl mx-auto space-y-8">
+                <section id="objetivos" className="max-w-6xl mx-auto space-y-8">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-400">
                             <BookOpen className="w-6 h-6" />
@@ -132,8 +137,8 @@ const ProyectoFinal = () => {
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">3. Objetivos del Proyecto</h2>
                     </div>
                     <div className="space-y-12">
-                        <div className="bg-gradient-to-r from-blue-600/10 to-indigo-600/10 p-8 rounded-3xl border border-blue-500/20">
-                            <h3 className="text-sm font-bold uppercase tracking-widest text-blue-400 mb-2">Objetivo General</h3>
+                        <div className="bg-gradient-to-r from-[var(--brand-navy)]/10 to-transparent p-8 rounded-[var(--radius-main)] border border-[var(--border-color)]">
+                            <h3 className="text-sm font-bold uppercase tracking-widest text-[var(--brand-navy)] dark:text-blue-400 mb-2">Objetivo General</h3>
                             <p className="text-xl font-light text-[var(--text-primary)] italic">
                                 "Diseñar e implementar un bastón inteligente con alerta sonora, capaz de detectar obstáculos y comunicar el nivel de riesgo mediante sonidos, utilizando Arduino UNO."
                             </p>
@@ -146,8 +151,8 @@ const ProyectoFinal = () => {
                                 "Diseñar estructura física mediante impresión 3D.",
                                 "Validar el funcionamiento mediante pruebas."
                             ].map((obj, i) => (
-                                <div key={i} className="flex gap-4 p-4 rounded-xl bg-[var(--card-bg)] border border-[var(--border-color)]">
-                                    <div className="text-blue-500 font-black">0{i + 1}</div>
+                                <div key={i} className="flex gap-4 p-4 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)]">
+                                    <div className="text-[var(--brand-navy)] dark:text-blue-400 font-black">0{i + 1}</div>
                                     <p className="text-sm text-[var(--text-secondary)]">{obj}</p>
                                 </div>
                             ))}
@@ -156,7 +161,7 @@ const ProyectoFinal = () => {
                 </section>
 
                 {/* 4. Descripción general del sistema */}
-                <section id="sistema" className="max-w-4xl mx-auto space-y-8">
+                <section id="sistema" className="max-w-6xl mx-auto space-y-8">
                     <div className="mb-6">
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">4. Descripción General del Sistema</h2>
                     </div>
@@ -180,20 +185,20 @@ const ProyectoFinal = () => {
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            className="relative group p-4 rounded-[3rem] bg-indigo-950/20 border border-indigo-500/20 flex items-center justify-center overflow-hidden"
+                            className="relative group p-4 rounded-[var(--radius-main)] bg-[var(--brand-navy)]/5 border border-[var(--border-color)] flex items-center justify-center overflow-hidden"
                         >
-                            <div className="absolute inset-0 bg-indigo-500/10 blur-2xl group-hover:bg-indigo-500/20 transition-colors -z-10" />
+                            <div className="absolute inset-0 bg-[var(--brand-navy)]/10 blur-[80px] group-hover:bg-[var(--brand-navy)]/20 transition-colors -z-10" />
                             <img
                                 src="/assets/img/proyecto_final/desceripcion_sistema.jpeg"
                                 alt="Descripción del Sistema"
-                                className="w-full h-auto rounded-2xl shadow-xl group-hover:scale-105 transition-transform duration-500"
+                                className="w-full max-w-sm mx-auto h-auto rounded-xl shadow-xl group-hover:scale-105 transition-transform duration-500"
                             />
                         </motion.div>
                     </div>
                 </section>
 
                 {/* 5. Sensores y principio de funcionamiento */}
-                <section id="sensores" className="max-w-4xl mx-auto space-y-12">
+                <section id="sensores" className="max-w-6xl mx-auto space-y-12">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
                             <Cpu className="w-6 h-6" />
@@ -203,12 +208,12 @@ const ProyectoFinal = () => {
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         <div className="space-y-6">
-                            <h3 className="text-xl font-bold text-blue-400">Ultrasónicos (HC-SR04)</h3>
-                            <div className="bg-[var(--card-bg)] p-6 rounded-3xl border border-[var(--border-color)] space-y-4 shadow-xl">
+                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">Ultrasónicos (HC-SR04)</h3>
+                            <div className="bg-[var(--card-bg)] p-6 rounded-[var(--radius-main)] border border-[var(--border-color)] space-y-4 shadow-xl">
                                 <img
                                     src="/assets/img/proyecto_final/HC-SRO4.jfif"
                                     alt="Sensor HC-SR04"
-                                    className="w-full h-48 object-cover rounded-2xl border border-[var(--border-color)]"
+                                    className="w-full h-48 object-cover rounded-xl border border-[var(--border-color)]"
                                 />
                                 <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
                                     Emiten pulsos de alta frecuencia (40 kHz). Al reflejarse en un objeto, el eco regresa y el sistema calcula la distancia basándose en el tiempo de vuelo del pulso. El sensor inferior se enfoca específicamente en la detección de huecos.
@@ -216,12 +221,12 @@ const ProyectoFinal = () => {
                             </div>
                         </div>
                         <div className="space-y-6">
-                            <h3 className="text-xl font-bold text-blue-400">Sensor de Agua</h3>
-                            <div className="bg-[var(--card-bg)] p-6 rounded-3xl border border-[var(--border-color)] space-y-4 shadow-xl">
+                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">Sensor de Agua</h3>
+                            <div className="bg-[var(--card-bg)] p-6 rounded-[var(--radius-main)] border border-[var(--border-color)] space-y-4 shadow-xl">
                                 <img
                                     src="/assets/img/proyecto_final/SENSOR_AGUA.jfif"
                                     alt="Sensor de Agua"
-                                    className="w-full h-48 object-cover rounded-2xl border border-[var(--border-color)]"
+                                    className="w-full h-48 object-cover rounded-xl border border-[var(--border-color)]"
                                 />
                                 <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
                                     Compuesto por pistas conductoras. Al entrar en contacto con agua, se cierra el circuito permitiendo el paso de corriente, lo que Arduino interpreta como presencia de charcos, alertando al usuario antes de dar el paso.
@@ -232,8 +237,8 @@ const ProyectoFinal = () => {
                 </section>
 
                 {/* 6. Sistema de alerta sonora (Buzzer) */}
-                <section id="alerta" className="max-w-4xl mx-auto space-y-8">
-                    <div className="flex items-center gap-4 mb-6 text-center justify-center">
+                <section id="alerta" className="max-w-6xl mx-auto space-y-8">
+                    <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-12 rounded-2xl bg-yellow-500/10 flex items-center justify-center text-yellow-400">
                             <Activity className="w-6 h-6" />
                         </div>
@@ -249,7 +254,7 @@ const ProyectoFinal = () => {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            className="rounded-[2rem] overflow-hidden border border-[var(--border-color)] shadow-2xl bg-[var(--card-bg)]"
+                            className="rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] shadow-2xl bg-[var(--card-bg)]"
                         >
                             <img
                                 src="/assets/img/proyecto_final/arduino-buzzer-module.jpg"
@@ -261,44 +266,51 @@ const ProyectoFinal = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {[
-                            { title: "Obstáculo Lejano", alert: "Sonido lento", color: "bg-green-500/10 border-green-500/20 text-green-600 dark:text-green-400" },
-                            { title: "Obstáculo Cercano", alert: "Sonido intermitente", color: "bg-yellow-500/10 border-yellow-500/20 text-yellow-600 dark:text-yellow-400" },
-                            { title: "Peligro Inmediato", alert: "Sonido continuo", color: "bg-red-500/10 border-red-500/20 text-red-600 dark:text-red-400" }
+                            { title: "Obstáculo Lejano", alert: "Sonido lento", accent: "from-emerald-500 to-emerald-400" },
+                            { title: "Obstáculo Cercano", alert: "Sonido intermitente", accent: "from-amber-500 to-amber-400" },
+                            { title: "Peligro Inmediato", alert: "Sonido continuo", accent: "from-rose-500 to-rose-400" }
                         ].map((alert, i) => (
-                            <div key={i} className={`p-6 rounded-2xl border ${alert.color} text-center space-y-3 shadow-sm`}>
-                                <h4 className="font-bold uppercase text-xs tracking-tighter opacity-80">{alert.title}</h4>
-                                <Play className="w-6 h-6 mx-auto opacity-50" />
-                                <p className="text-sm font-black">{alert.alert}</p>
+                            <div key={i} className="relative group p-8 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] text-center space-y-4 hover:shadow-xl transition-all overflow-hidden">
+                                {/* Subtle Luxury Accent Bar */}
+                                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${alert.accent} opacity-50`} />
+
+                                <h4 className="font-orbitron font-bold uppercase text-[10px] tracking-[0.2em] text-[var(--text-secondary)]">{alert.title}</h4>
+                                <div className="flex justify-center">
+                                    <div className="p-4 rounded-xl bg-gradient-to-br bg-opacity-10 flex items-center justify-center">
+                                        <Play className="w-5 h-5" />
+                                    </div>
+                                </div>
+                                <p className="text-sm font-black text-[var(--text-primary)] tracking-tight">{alert.alert}</p>
                             </div>
                         ))}
                     </div>
                 </section>
 
                 {/* 7. Electrónica y conexiones */}
-                <section id="electronica" className="max-w-4xl mx-auto space-y-8">
+                <section id="electronica" className="max-w-6xl mx-auto space-y-8">
                     <div className="mb-6">
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">7. Electrónica y Conexiones</h2>
                     </div>
-                    <div className="bg-[var(--card-bg)] p-8 rounded-[2.5rem] border border-[var(--border-color)]">
+                    <div className="bg-[var(--card-bg)] p-8 rounded-[var(--radius-main)] border border-[var(--border-color)]">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <div className="space-y-6">
-                                <h3 className="text-xl font-bold text-blue-400">Configuración Central</h3>
+                                <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">Configuración Central</h3>
                                 <p className="text-[var(--text-secondary)] text-sm leading-relaxed">Arduino UNO gestiona las señales de disparo a los sensores y procesa la lógica de salida PWM para el buzzer piezoeléctrico.</p>
-                                <ul className="space-y-2 text-xs font-mono text-[var(--brand-primary)]">
+                                <ul className="space-y-2 text-xs font-mono">
                                     <li className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand-navy)]" />
                                         VCC/GND: Alimentación central.
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand-navy)]" />
                                         Trigger/Echo: Pines ultrasónicos.
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand-navy)]" />
                                         Analog In: Lectura sensor agua.
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand-navy)]" />
                                         PWM Out: Control de frecuencia buzzer.
                                     </li>
                                 </ul>
@@ -306,12 +318,12 @@ const ProyectoFinal = () => {
                             <div className="flex items-center justify-center">
                                 <motion.div
                                     whileHover={{ scale: 1.05 }}
-                                    className="relative group p-2 rounded-3xl bg-blue-500/5 border border-blue-500/20"
+                                    className="relative group p-2 rounded-xl bg-[var(--brand-navy)]/5 border border-[var(--border-color)]"
                                 >
                                     <img
                                         src="/assets/img/proyecto_final/arduino.jfif"
                                         alt="Arduino Central"
-                                        className="w-full h-auto rounded-2xl shadow-2xl"
+                                        className="w-full h-auto rounded-xl shadow-2xl"
                                     />
                                 </motion.div>
                             </div>
@@ -320,14 +332,15 @@ const ProyectoFinal = () => {
                 </section>
 
                 {/* 8. Metodología de desarrollo */}
-                <section id="metodologia" className="max-w-4xl mx-auto space-y-12">
+                <section id="metodologia" className="max-w-6xl mx-auto space-y-12">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400">
                             <ListChecks className="w-6 h-6" />
                         </div>
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">8. Metodología de Desarrollo</h2>
                     </div>
-                    <div className="relative border-l border-blue-500/30 ml-4 pl-8 space-y-12">
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {[
                             {
                                 title: "Identificación",
@@ -366,51 +379,48 @@ const ProyectoFinal = () => {
                                 ]
                             }
                         ].map((m, i) => (
-                            <div key={i} className="relative">
-                                <div className="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
-                                <h4 className="font-bold text-blue-400 mb-1">{m.title}</h4>
-                                <p className="text-[var(--text-secondary)] text-sm mb-4">{m.desc}</p>
+                            <div
+                                key={i}
+                                className={`relative p-6 rounded-[var(--radius-main)] border border-[var(--border-color)] bg-[var(--card-bg)] shadow-xl hover:border-blue-500/30 transition-all group ${i === 4 ? 'md:col-span-2 md:w-2/3 md:mx-auto' : ''}`}
+                            >
+                                <h4 className="font-bold text-blue-400 mb-2 text-lg">
+                                    <span className="mr-2 text-blue-500/50 font-black">{i + 1}.</span>
+                                    {m.title}
+                                </h4>
+                                <p className="text-[var(--text-secondary)] text-sm mb-6">{m.desc}</p>
+
                                 {m.video && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        className="max-w-2xl rounded-2xl overflow-hidden border border-[var(--border-color)] shadow-2xl bg-[var(--card-bg)]"
-                                    >
-                                        <div className="aspect-video relative">
+                                    <div className="rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] shadow-md bg-black">
+                                        <div className="w-full aspect-video relative">
                                             <iframe
                                                 src={`https://drive.google.com/file/d/${m.video.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
-                                                className="absolute inset-0 w-full h-full border-0"
-                                                allow="autoplay; fullscreen"
+                                                className="absolute inset-0 w-full h-full border-0 pointer-events-none group-hover:pointer-events-auto transition-all"
+                                                allow="fullscreen"
                                                 allowFullScreen
                                                 loading="lazy"
                                             />
+                                            <div className="absolute inset-0 pointer-events-none group-hover:hidden bg-transparent z-10" />
                                         </div>
-                                    </motion.div>
+                                    </div>
                                 )}
+
                                 {m.image && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        className="max-w-2xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
-                                    >
+                                    <div className="rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] shadow-md">
                                         <img
                                             src={m.image}
                                             alt={m.title}
-                                            className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                                            className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
                                         />
-                                    </motion.div>
+                                    </div>
                                 )}
+
                                 {m.images && (
-                                    <motion.div
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        className="max-w-2xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
-                                    >
+                                    <div className="rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] shadow-md">
                                         <ImageCarousel
                                             images={m.images}
                                             className="w-full aspect-video"
                                         />
-                                    </motion.div>
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -418,7 +428,7 @@ const ProyectoFinal = () => {
                 </section>
 
                 {/* 9. Impacto social y ODS */}
-                <section id="impacto" className="max-w-4xl mx-auto space-y-8">
+                <section id="impacto" className="max-w-6xl mx-auto space-y-8">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
                             <Users className="w-6 h-6" />
@@ -441,7 +451,7 @@ const ProyectoFinal = () => {
                 </section>
 
                 {/* 10. Innovación y valor académico */}
-                <section id="innovacion" className="max-w-4xl mx-auto space-y-8">
+                <section id="innovacion" className="max-w-6xl mx-auto space-y-8">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-400">
                             <Lightbulb className="w-6 h-6" />
@@ -461,7 +471,7 @@ const ProyectoFinal = () => {
                 </section>
 
                 {/* 11. Futuras mejoras */}
-                <section id="mejoras" className="max-w-4xl mx-auto space-y-8">
+                <section id="mejoras" className="max-w-6xl mx-auto space-y-8">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
                             <ArrowUpCircle className="w-6 h-6" />
@@ -475,7 +485,7 @@ const ProyectoFinal = () => {
                             "Optimización Energética",
                             "Miniaturización"
                         ].map((m, i) => (
-                            <div key={i} className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] text-center text-xs font-bold text-[var(--brand-primary)] shadow-md">
+                            <div key={i} className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] text-center text-xs font-bold text-[var(--brand-primary)] dark:text-blue-200 shadow-md">
                                 {m}
                             </div>
                         ))}
@@ -483,7 +493,7 @@ const ProyectoFinal = () => {
                 </section>
 
                 {/* 12. Video Final */}
-                <section id="video-final" className="max-w-5xl mx-auto space-y-8">
+                <section id="video-final" className="max-w-6xl mx-auto space-y-8">
                     <div className="flex items-center gap-4 mb-4">
                         <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
                             <Play className="w-6 h-6" />
@@ -491,16 +501,17 @@ const ProyectoFinal = () => {
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">12. Video de Presentación Final</h2>
                     </div>
 
-                    <div className="relative rounded-[3rem] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl">
+                    <div className="relative rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl group">
                         <div className="w-full aspect-video relative">
                             <iframe
-                                src={`https://drive.google.com/file/d/${driveAssets.pro_fin_video_final.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
-                                className="absolute inset-0 w-full h-full border-0"
-                                allow="autoplay; fullscreen"
+                                src={`https://drive.google.com/file/d/${driveAssets.pro_fin_video_final.match(/\/d\/(.+?)\//)[1]}/preview`}
+                                className="absolute inset-0 w-full h-full border-0 pointer-events-none group-hover:pointer-events-auto transition-all"
+                                allow="fullscreen"
                                 allowFullScreen
                                 title="Video Final - Bastón Inteligente"
                                 loading="lazy"
                             />
+                            <div className="absolute inset-0 pointer-events-none group-hover:hidden bg-transparent z-10" />
                         </div>
                         <div className="p-8 text-center bg-gradient-to-t from-[var(--card-bg)] to-transparent">
                             <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Demostración Completa</h3>
@@ -510,17 +521,16 @@ const ProyectoFinal = () => {
                 </section>
 
                 {/* 13. Conclusión */}
-                <section id="conclusion" className="max-w-4xl mx-auto text-center space-y-8">
-                    <div className="flex items-center justify-center gap-4 mb-6 text-center">
-                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">13. Conclusión</h2>
-                    </div>
-                    <p className="text-xl font-light italic leading-relaxed text-[var(--text-primary)]/80">
+                {/* 13. Conclusión */}
+                <section id="conclusion" className="conclusion-standard max-w-6xl mx-auto">
+                    <h2>13. Conclusión</h2>
+                    <p>
                         "El Bastón Inteligente Alerta Sonora representa una solución tecnológica viable y socialmente relevante, demostrando cómo el uso de Arduino UNO y herramientas de fabricación digital puede contribuir al desarrollo de dispositivos de asistencia accesibles e inclusivos."
                     </p>
                 </section>
 
                 {/* 14. Recursos */}
-                <section id="recursos" className="max-w-5xl mx-auto space-y-16">
+                <section id="recursos" className="max-w-6xl mx-auto space-y-16">
                     <div className="flex items-center gap-4 mb-4">
                         <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400">
                             <Play className="w-6 h-6" />
@@ -529,7 +539,7 @@ const ProyectoFinal = () => {
                     </div>
 
                     {/* Videos Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="flex flex-wrap justify-center gap-8">
                         {[
                             { src: driveAssets.pro_fin_mp4_01, label: 'Video 01' },
                             { src: driveAssets.pro_fin_mp4_02, label: 'Video 02' },
@@ -544,19 +554,20 @@ const ProyectoFinal = () => {
                             <motion.div
                                 key={i}
                                 whileHover={{ scale: 1.01 }}
-                                className="group relative rounded-[2rem] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl"
+                                className="w-full md:w-[calc(50%-1rem)] group relative rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl"
                             >
                                 <div className="w-full aspect-video relative">
                                     <iframe
                                         src={`https://drive.google.com/file/d/${vid.src.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
-                                        className="absolute inset-0 w-full h-full border-0"
-                                        allow="autoplay; fullscreen"
+                                        className="absolute inset-0 w-full h-full border-0 pointer-events-none group-hover:pointer-events-auto transition-all"
+                                        allow="fullscreen"
                                         allowFullScreen
                                         title={vid.label}
                                         loading="lazy"
                                     />
+                                    <div className="absolute inset-0 pointer-events-none group-hover:hidden bg-transparent z-10" />
                                 </div>
-                                <div className="p-4 text-center text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-blue-400 transition-colors">
+                                <div className="p-4 text-center text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--brand-navy)] dark:group-hover:text-blue-400 transition-colors">
                                     {vid.label}
                                 </div>
                             </motion.div>
@@ -580,15 +591,15 @@ const ProyectoFinal = () => {
                                     href={item.path}
                                     download={item.name}
                                     whileHover={{ scale: 1.05 }}
-                                    className="flex items-center justify-between p-6 rounded-2xl bg-blue-500/5 border border-blue-500/20 hover:bg-blue-500/10 transition-all group"
+                                    className="flex items-center justify-between p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--brand-navy)]/30 transition-all group"
                                 >
                                     <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
+                                        <div className="w-10 h-10 rounded-xl bg-[var(--brand-navy)]/10 flex items-center justify-center text-[var(--brand-navy)] dark:text-blue-400">
                                             {item.icon}
                                         </div>
                                         <span className="text-[10px] font-bold uppercase tracking-widest">{item.label}</span>
                                     </div>
-                                    <Download className="w-4 h-4 text-blue-500" />
+                                    <Download className="w-4 h-4 text-[var(--brand-navy)]/50 group-hover:text-[var(--brand-navy)] transition-all" />
                                 </motion.a>
                             ))}
                         </div>
@@ -646,14 +657,15 @@ const ProyectoFinal = () => {
 
                 {/* Final Navigation Button */}
                 <div className="flex justify-center pt-20">
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => window.location.href = '/'}
-                        className="px-12 py-6 rounded-full bg-[var(--brand-primary)] text-white font-orbitron font-bold text-lg hover:shadow-[0_0_50px_rgba(59,130,246,0.4)] transition-all shadow-xl"
+                    <button
+                        onClick={() => navigate('/')}
+                        className="btn-premium group"
                     >
-                        Finalizar Revisión
-                    </motion.button>
+                        <span className="btn-premium-text">
+                            Volver al Inicio
+                        </span>
+                        <Home className="relative z-10 w-5 h-5 text-[var(--text-primary)] group-hover:text-white transition-all duration-700" />
+                    </button>
                 </div>
             </div>
         </PageLayout>

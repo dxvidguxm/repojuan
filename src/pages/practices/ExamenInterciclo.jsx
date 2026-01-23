@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Beaker, BookOpen, Download, ListChecks, Play, Image as ImageIcon, CheckCircle2, FileText, Box } from 'lucide-react';
+import { Beaker, BookOpen, Download, ListChecks, Play, Image as ImageIcon, CheckCircle2, FileText, Box, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import PageLayout from '../../components/PageLayout';
 import { driveAssets, getDriveDirectLink } from '../../data/assets';
 
 const ExamenInterciclo = () => {
+    const navigate = useNavigate();
     return (
         <PageLayout
             title="Examen Interciclo"
@@ -30,15 +32,15 @@ const ExamenInterciclo = () => {
                         className="max-w-4xl mx-auto space-y-6"
                     >
                         <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
-                                <BookOpen className="w-5 h-5" />
+                            <div className="w-12 h-12 rounded-2xl bg-[var(--brand-navy)]/10 flex items-center justify-center text-[var(--brand-navy)] dark:text-blue-400 shrink-0">
+                                <BookOpen className="w-6 h-6" />
                             </div>
-                            <h2 className="text-2xl font-orbitron font-bold uppercase tracking-tight">Contexto Global</h2>
+                            <h2 className="text-2xl md:text-3xl font-orbitron font-bold uppercase tracking-tight text-[var(--text-primary)]">Contexto Global</h2>
                         </div>
                         <p className="text-[var(--text-secondary)] text-base leading-relaxed text-justify">
                             Desarrollar la habilidad para integrar herramientas CAD avanzadas (Blender, Fusion 360 y Meshmixer) en la creación de moldes funcionales a partir de geometrías orgánicas obtenidas por escaneado láser.
                         </p>
-                        <div className="p-6 rounded-2xl bg-white/5 border border-[var(--border-color)] border-l-4 border-l-blue-500 shadow-xl backdrop-blur-sm">
+                        <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] border-l-4 border-l-[var(--brand-red)] shadow-xl backdrop-blur-sm">
                             <h4 className="text-[var(--text-primary)] font-bold mb-2 text-sm uppercase tracking-wider">Desafío Técnico: TPU Flex</h4>
                             <p className="text-[var(--text-secondary)] text-xs font-medium leading-relaxed">El uso de poliuretano termoplástico (TPU) requiere una calibración precisa de la retracción y velocidad para evitar el atascamiento del extrusor debido a su elasticidad.</p>
                         </div>
@@ -53,13 +55,13 @@ const ExamenInterciclo = () => {
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)] text-center mb-8">Memoria Técnica del Proyecto</h2>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[var(--text-secondary)] font-light text-sm leading-relaxed">
-                            <div className="p-6 rounded-2xl bg-white/5 border border-[var(--border-color)] space-y-4">
-                                <h3 className="text-xl font-bold text-blue-400">P.1 Identificación de necesidades</h3>
+                            <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] space-y-4">
+                                <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">P.1 Identificación de necesidades</h3>
                                 <p>Desarrollar un molde robusto, reutilizable y capaz de reproducir diseños personalizados para velas artesanales. Debe ser resistente al calor moderado, flexible para el desmolde, escalable y una alternativa accesible a los moldes tradicionales costosos.</p>
                             </div>
 
-                            <div className="p-6 rounded-2xl bg-white/5 border border-[var(--border-color)] space-y-4">
-                                <h3 className="text-xl font-bold text-blue-400">P.2 Alcance y Variables</h3>
+                            <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] space-y-4">
+                                <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">P.2 Alcance y Variables</h3>
                                 <ul className="list-disc list-inside space-y-1">
                                     <li>Dimensiones y capacidad de la impresora.</li>
                                     <li>Geometría para evitar atrapamientos de aire.</li>
@@ -69,23 +71,23 @@ const ExamenInterciclo = () => {
                                 </ul>
                             </div>
 
-                            <div className="p-6 rounded-2xl bg-white/5 border border-[var(--border-color)] space-y-4">
-                                <h3 className="text-xl font-bold text-blue-400">P.3 Boceto Preliminar</h3>
+                            <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] space-y-4">
+                                <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">P.3 Boceto Preliminar</h3>
                                 <p>Desarrollo en Blender a partir del escaneo: corrección de malla, suavizado, división estratégica del molde y diseño de canales de vertido y espacio para la mecha.</p>
                             </div>
 
-                            <div className="p-6 rounded-2xl bg-white/5 border border-[var(--border-color)] space-y-4">
-                                <h3 className="text-xl font-bold text-blue-400">P.4 Justificación del Diseño</h3>
+                            <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] space-y-4">
+                                <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">P.4 Justificación del Diseño</h3>
                                 <p>Molde de dos partes para facilitar desmolde. Paredes internas suavizadas. TPU elegido por resistencia térmica y flexibilidad. Diseño simple y eficiente.</p>
                             </div>
 
-                            <div className="p-6 rounded-2xl bg-white/5 border border-[var(--border-color)] space-y-4">
-                                <h3 className="text-xl font-bold text-blue-400">P.5 Mediciones y Tolerancias</h3>
+                            <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] space-y-4">
+                                <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">P.5 Mediciones y Tolerancias</h3>
                                 <p>Tolerancias estándar de ±0.2 mm en superficies de contacto. Ajustes en la unión central para evitar filtraciones de cera. Consideración de contracción térmica del TPU.</p>
                             </div>
 
-                            <div className="p-6 rounded-2xl bg-white/5 border border-[var(--border-color)] space-y-4">
-                                <h3 className="text-xl font-bold text-blue-400">P.6 Producto Final</h3>
+                            <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] space-y-4">
+                                <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">P.6 Producto Final</h3>
                                 <p>Molde funcional en TPU, ergonómico y reutilizable. Pruebas de vaciado exitosas obteniendo velas uniformes. Adecuado para procesos artesanales de baja escala.</p>
                             </div>
                         </div>
@@ -96,9 +98,9 @@ const ExamenInterciclo = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="max-w-4xl mx-auto rounded-[2.5rem] p-8 bg-[var(--card-bg)] border border-[var(--border-color)] space-y-6"
+                        className="max-w-4xl mx-auto rounded-[var(--radius-main)] p-8 bg-[var(--card-bg)] border border-[var(--border-color)] space-y-6"
                     >
-                        <h3 className="text-lg font-orbitron font-bold text-blue-400 uppercase tracking-widest text-center">Resultados Esperados</h3>
+                        <h3 className="text-lg font-orbitron font-bold text-[var(--brand-navy)] dark:text-blue-400 uppercase tracking-widest text-center">Resultados Esperados</h3>
                         <div className="space-y-4">
                             {[
                                 { so: 'SO2', desc: 'Soluciones complejas de Ingeniería Industrial considerando salud y seguridad.' },
@@ -106,7 +108,7 @@ const ExamenInterciclo = () => {
                                 { so: 'SO6', desc: 'Desarrollo y ejecución de protocolos experimentales con criterio técnico.' }
                             ].map((item, i) => (
                                 <div key={i} className="flex gap-4 group">
-                                    <div className="text-xs font-black text-blue-500/60 group-hover:text-blue-500 transition-colors pt-1">{item.so}</div>
+                                    <div className="text-xs font-black text-[var(--brand-navy)]/60 group-hover:text-[var(--brand-navy)] dark:group-hover:text-blue-400 transition-colors pt-1">{item.so}</div>
                                     <p className="text-[var(--text-secondary)] text-xs group-hover:text-[var(--text-primary)] transition-colors uppercase tracking-tight">{item.desc}</p>
                                 </div>
                             ))}
@@ -117,10 +119,10 @@ const ExamenInterciclo = () => {
                 {/* Technical Process - Horizontal Scroll/Steps */}
                 <section id="workflow">
                     <div className="flex items-center gap-4 mb-12">
-                        <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
-                            <ListChecks className="w-4 h-4" />
+                        <div className="w-12 h-12 rounded-2xl bg-[var(--brand-navy)]/10 flex items-center justify-center text-[var(--brand-navy)] dark:text-blue-400 shrink-0">
+                            <ListChecks className="w-6 h-6" />
                         </div>
-                        <h2 className="text-xl font-orbitron font-bold uppercase tracking-tight">Workflow de Manufactura</h2>
+                        <h2 className="text-2xl md:text-3xl font-orbitron font-bold uppercase tracking-tight text-[var(--text-primary)]">Workflow de Manufactura</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         {[
@@ -135,9 +137,9 @@ const ExamenInterciclo = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
                                 whileHover={{ y: -5 }}
-                                className="p-6 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-blue-500/30 transition-all group"
+                                className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--brand-navy)]/30 transition-all group"
                             >
-                                <span className="text-[10px] font-bold text-blue-400 group-hover:text-blue-300 mb-3 block">Fase 0{i + 1}</span>
+                                <span className="text-[10px] font-bold text-[var(--brand-navy)] dark:text-blue-400 mb-3 block">Fase 0{i + 1}</span>
                                 <h4 className="text-sm font-bold mb-2 uppercase tracking-wide text-[var(--text-primary)]">{step.title}</h4>
                                 <p className="text-[var(--text-secondary)] text-xs font-light leading-relaxed">{step.desc}</p>
                             </motion.div>
@@ -150,8 +152,8 @@ const ExamenInterciclo = () => {
                     <h2 className="text-2xl font-orbitron font-bold text-[var(--text-primary)] mb-6 uppercase tracking-tight">Materiales y Procedimiento</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Materiales */}
-                        <div className="p-6 rounded-2xl bg-white/5 border border-[var(--border-color)]">
-                            <h3 className="text-xl font-bold text-blue-400 mb-4">Equipos y Materiales</h3>
+                        <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)]">
+                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400 mb-4">Equipos y Materiales</h3>
                             <ul className="list-disc list-inside text-[var(--text-primary)]/70 space-y-2 text-sm">
                                 <li>Archivo STL del molde</li>
                                 <li>Filamento TPU</li>
@@ -161,7 +163,7 @@ const ExamenInterciclo = () => {
                         </div>
                         {/* Procedimiento */}
                         <div className="space-y-4">
-                            <h3 className="text-xl font-bold text-blue-400">Procedimiento Experimental</h3>
+                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">Procedimiento Experimental</h3>
                             <ol className="list-decimal list-inside text-[var(--text-secondary)] font-light text-sm space-y-2">
                                 <li>Abrir archivo de escáner en Blender y realizar el molde.</li>
                                 <li>Abrir en Ultimaker Cura.</li>
@@ -183,7 +185,7 @@ const ExamenInterciclo = () => {
                 {/* Media Block: Central Video Section */}
                 <section id="multimedia" className="space-y-8">
                     <div className="flex items-center justify-between">
-                        <h2 className="text-2xl font-orbitron font-bold uppercase tracking-tight">Registro Multimedia</h2>
+                        <h2 className="text-2xl md:text-3xl font-orbitron font-bold uppercase tracking-tight text-[var(--text-primary)]">Registro Multimedia</h2>
                         <div className="flex gap-4">
                             <div className="w-12 h-1 rounded-full bg-blue-500" />
                             <div className="w-4 h-1 rounded-full bg-white/10" />
@@ -194,19 +196,20 @@ const ExamenInterciclo = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="rounded-3xl overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl max-w-5xl mx-auto w-full group"
+                            className="rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl max-w-5xl mx-auto w-full group"
                         >
                             <div className="w-full aspect-video relative">
                                 <iframe
                                     src={`https://drive.google.com/file/d/${driveAssets.exi_new_mp4.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
-                                    className="absolute inset-0 w-full h-full border-0"
+                                    className="absolute inset-0 w-full h-full border-0 pointer-events-none group-hover:pointer-events-auto transition-all"
                                     allow="autoplay"
                                     title="Proceso de Impresión"
                                     loading="lazy"
                                 />
+                                <div className="absolute inset-0 pointer-events-none group-hover:hidden bg-transparent z-10" />
                             </div>
                             <div className="p-6 text-center border-t border-[var(--border-color)]">
-                                <h3 className="text-sm font-orbitron font-bold uppercase tracking-widest text-blue-400">Proceso de Elaboración / Impresión</h3>
+                                <h3 className="text-sm font-orbitron font-bold uppercase tracking-widest text-[var(--brand-navy)] dark:text-blue-400">Proceso de Elaboración / Impresión</h3>
                             </div>
                         </motion.div>
 
@@ -220,16 +223,17 @@ const ExamenInterciclo = () => {
                                 <motion.div
                                     key={i}
                                     whileHover={{ scale: 1.02 }}
-                                    className="rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-lg"
+                                    className="rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-lg group"
                                 >
                                     <div className="w-full aspect-[4/5] relative">
                                         <iframe
                                             src={`https://drive.google.com/file/d/${vid.src.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
-                                            className="absolute inset-0 w-full h-full border-0"
+                                            className="absolute inset-0 w-full h-full border-0 pointer-events-none group-hover:pointer-events-auto transition-all"
                                             allow="autoplay"
                                             title={vid.label}
                                             loading="lazy"
                                         />
+                                        <div className="absolute inset-0 pointer-events-none group-hover:hidden bg-transparent z-10" />
                                     </div>
                                     <div className="p-4 text-center text-[10px] font-bold uppercase tracking-widest text-[var(--text-secondary)]">{vid.label}</div>
                                 </motion.div>
@@ -253,14 +257,14 @@ const ExamenInterciclo = () => {
 
                 {/* Downloads & Resources */}
                 <section id="downloads" className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div className="lg:col-span-1 p-8 rounded-[2rem] bg-gradient-to-br from-blue-600 to-indigo-800 shadow-2xl flex flex-col justify-between group overflow-hidden relative">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+                    <div className="lg:col-span-1 p-8 rounded-[var(--radius-main)] bg-gradient-to-br from-[var(--brand-navy)] to-[var(--brand-slate)] shadow-2xl flex flex-col justify-between group overflow-hidden relative">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
                         <div>
-                            <h3 className="text-xl font-orbitron font-bold mb-4 italic text-white">Conclusión y Recomendaciones</h3>
-                            <div className="space-y-4 text-indigo-100/90 text-sm font-light leading-relaxed italic">
+                            <h3 className="text-xl font-orbitron font-bold mb-4 italic text-white uppercase tracking-tight">Conclusión</h3>
+                            <div className="space-y-4 text-white/80 text-sm font-light leading-relaxed italic">
                                 <p>"La realización de este proyecto permitió comprender de manera integral todo el proceso involucrado en el diseño y fabricación mediante impresión 3D. Se evidenció la importancia de los parámetros de impresión y cómo cada configuración influye en el comportamiento del material y en la calidad final del producto."</p>
                                 <p>"La fabricación del molde demostró que el uso de TPU en aplicaciones funcionales es viable. El flujo de trabajo reforzó competencias en modelado 3D y solución de problemas."</p>
-                                <h4 className="font-bold text-white not-italic mt-4">Recomendaciones:</h4>
+                                <h4 className="font-bold text-white not-italic mt-4 uppercase text-[10px] tracking-widest">Recomendaciones:</h4>
                                 <ul className="list-disc list-inside not-italic space-y-1">
                                     <li>Realizar impresiones de prueba.</li>
                                     <li>Reducir velocidad para material flexible.</li>
@@ -288,19 +292,32 @@ const ExamenInterciclo = () => {
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
-                                className="flex justify-between items-center p-6 rounded-[2rem] bg-white/5 border border-[var(--border-color)] hover:bg-white/10 hover:border-blue-500/30 transition-all group"
+                                className="flex justify-between items-center p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--brand-navy)]/30 transition-all group"
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-[var(--text-primary)] transition-all duration-500 animate-float">
+                                    <div className="w-10 h-10 rounded-xl bg-[var(--brand-navy)]/10 flex items-center justify-center text-[var(--brand-navy)] dark:text-blue-400 group-hover:bg-[var(--brand-navy)] group-hover:text-white transition-all duration-500 animate-float">
                                         {React.cloneElement(item.icon, { className: "w-4 h-4" })}
                                     </div>
                                     <span className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">{item.label}</span>
                                 </div>
-                                <Download className="w-4 h-4 text-[var(--text-primary)]/10 group-hover:text-blue-400 group-hover:translate-y-1 transition-all" />
+                                <Download className="w-4 h-4 text-[var(--brand-navy)]/50 group-hover:text-[var(--brand-navy)] group-hover:translate-y-1 transition-all" />
                             </motion.a>
                         ))}
                     </div>
                 </section>
+
+                {/* Final Navigation Button */}
+                <div className="flex justify-center pt-8">
+                    <button
+                        onClick={() => navigate('/practice/proyectofinal')}
+                        className="btn-premium group"
+                    >
+                        <span className="btn-premium-text">
+                            Proyecto Final
+                        </span>
+                        <ArrowRight className="relative z-10 w-5 h-5 text-[var(--text-primary)] group-hover:text-white group-hover:translate-x-1 transition-all duration-700" />
+                    </button>
+                </div>
             </div>
         </PageLayout>
     );

@@ -10,14 +10,14 @@ import CorteLaser from './pages/practices/CorteLaser';
 import ExamenInterciclo from './pages/practices/ExamenInterciclo';
 import ProyectoFinal from './pages/practices/ProyectoFinal';
 
-import CustomCursor from './components/CustomCursor';
+import SmoothScroll from './components/SmoothScroll';
+import FullscreenButton from './components/FullscreenButton';
 
 function App() {
   const location = useLocation();
 
   return (
-    <>
-      <CustomCursor />
+    <SmoothScroll>
 
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -31,7 +31,8 @@ function App() {
           <Route path="/practice/proyectofinal" element={<ProyectoFinal />} />
         </Routes>
       </AnimatePresence>
-    </>
+      <FullscreenButton />
+    </SmoothScroll>
   );
 }
 

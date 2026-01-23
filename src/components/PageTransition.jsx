@@ -4,15 +4,16 @@ import { motion } from 'framer-motion';
 const PageTransition = ({ children }) => {
     return (
         <motion.div
-            initial={{ opacity: 0, filter: 'blur(10px)', y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, filter: 'blur(0px)', y: 0, scale: 1 }}
-            exit={{ opacity: 0, filter: 'blur(10px)', scale: 1.05 }}
+            initial={{ opacity: 0, x: "100vw", scale: 0.9, filter: 'blur(10px)' }}
+            animate={{ opacity: 1, x: 0, scale: 1, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, x: "-100vw", scale: 0.9, filter: 'blur(10px)' }}
             transition={{
                 type: "spring",
-                stiffness: 260,
-                damping: 20
+                stiffness: 120,
+                damping: 20,
+                mass: 1
             }}
-            className="w-full"
+            className="w-full origin-center"
         >
             {children}
         </motion.div>

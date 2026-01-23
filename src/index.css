@@ -119,20 +119,23 @@
   animation: shine 3s linear infinite;
 }
 
-.noise-overlay {
+
+/* Background Grid Overlay */
+.grid-overlay {
   position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 200%;
-  height: 200%;
-  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
-  background-repeat: repeat;
-  animation: noise 1s infinite steps(5);
-  opacity: .03;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+  opacity: 0.15;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 1;
+}
+
+.dark .grid-overlay {
+  opacity: 0.05;
 }
 
 .animate-fluid-glow {
@@ -144,29 +147,39 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+
 
   :root {
-    --bg-primary: #050608;
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --border-color: rgba(255, 255, 255, 0.1);
-    --card-bg: #111218;
-    --brand-primary: #3B82F6;
+    /* Exact Logo Palette */
+    --brand-navy: #00204A;
+    --brand-slate: #7C7C7C;
+    --brand-red: #A61D24;
+
+    --bg-primary: #050505;
+    /* Deeper black */
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --border-color: rgba(255, 255, 255, 0.15);
+    --card-bg: #121212;
+    /* Slightly lighter for contrast */
+    --brand-primary: #00204A;
+    --radius-main: 0.5rem;
+    /* Sharper formal look */
+    --radius-sm: 0.25rem;
+
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
   html.light {
-    --bg-primary: #f8fafc;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --border-color: rgba(0, 0, 0, 0.1);
-    --card-bg: #ffffff;
-    --brand-primary: #2563EB;
+    --bg-primary: #E6E9F0;
+    /* Distinct light gray for clear card separation */
+    --text-primary: #00204A;
+    --text-secondary: #334155;
+    --border-color: rgba(0, 32, 74, 0.15);
+    --card-bg: #FFFFFF;
+    --brand-primary: #00204A;
   }
 
   body {
@@ -179,5 +192,79 @@
   .backdrop-blur-md {
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
+  }
+}
+
+@layer utilities {
+
+  /* Utility Styles */
+  .btn-premium {
+    @apply relative px-8 py-4 bg-transparent transition-all duration-700 overflow-hidden inline-flex items-center gap-3;
+  }
+
+  .btn-premium::before {
+    content: '';
+    @apply absolute inset-0 border border-[var(--brand-navy)]/30 transition-colors duration-700;
+  }
+
+  .btn-premium:hover::before {
+    @apply border-[var(--brand-navy)];
+  }
+
+  .btn-premium::after {
+    content: '';
+    @apply absolute inset-0 bg-[var(--brand-navy)] translate-y-full transition-transform duration-700 ease-in-out -z-10;
+  }
+
+  .btn-premium:hover::after {
+    @apply translate-y-0;
+  }
+
+  .btn-premium-text {
+    @apply relative z-10 font-bold uppercase tracking-[0.4em] text-xs text-[var(--text-primary)] group-hover:text-white transition-colors duration-700 font-orbitron;
+  }
+
+  .card-premium {
+    @apply bg-[var(--card-bg)]/50 backdrop-blur-sm border border-[var(--border-color)] rounded-[var(--radius-main)] transition-all duration-500;
+  }
+
+  .card-premium:hover {
+    @apply border-[var(--brand-navy)]/40 shadow-2xl;
+  }
+
+  .conclusion-standard {
+    @apply p-12 rounded-none transition-all duration-500 text-center border border-[var(--brand-navy)]/20;
+    background-color: var(--brand-navy);
+    color: white !important;
+  }
+
+  .dark .conclusion-standard {
+    background-color: white;
+    color: var(--brand-navy) !important;
+  }
+
+  .conclusion-standard h2 {
+    @apply font-orbitron font-black uppercase tracking-[0.3em] mb-6;
+    color: inherit;
+  }
+
+  .conclusion-standard p {
+    @apply text-lg font-light leading-relaxed max-w-4xl mx-auto italic opacity-90;
+    color: inherit;
+  }
+
+  /* Standard Section Style (Blue in Light Mode, Card in Dark Mode) */
+  .section-standard {
+    @apply rounded-[var(--radius-main)] border border-[var(--border-color)] transition-all duration-500;
+    background-color: var(--card-bg);
+  }
+
+  html.light .section-standard {
+    background-color: var(--brand-navy);
+    border-color: rgba(255, 255, 255, 0.1);
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --brand-navy: #FFFFFF;
+    color: var(--text-primary);
   }
 }
