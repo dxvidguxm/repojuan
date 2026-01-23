@@ -53,16 +53,16 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
             <div className="grid-overlay" />
 
             {/* Navbar */}
-            <nav className="fixed top-0 w-full z-50 px-6 py-2 flex justify-between items-center backdrop-blur-md bg-[var(--bg-primary)]/80 transition-colors duration-300">
+            <nav className="fixed top-0 w-full z-50 px-4 md:px-6 py-2 flex justify-between items-center backdrop-blur-md bg-[var(--bg-primary)]/80 transition-colors duration-300">
                 <div className="flex items-center gap-2">
                     <Link to="/" className="flex items-center gap-3 group">
-                        <div className="w-10 h-10 bg-[var(--brand-navy)] text-white flex items-center justify-center font-black text-xs tracking-tighter shadow-md">
+                        <div className="w-10 h-10 bg-[var(--brand-navy)] text-white flex items-center justify-center font-black text-xs tracking-tighter shadow-md notranslate" translate="no">
                             I&D
                         </div>
                         <span className="text-[12px] font-black uppercase tracking-[0.2em] text-[var(--text-primary)] group-hover:text-[var(--brand-navy)] transition-colors">Industrial</span>
                     </Link>
                 </div>
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-2 md:gap-6">
                     <div
                         className="relative group"
                         onMouseEnter={() => setIsNavOpen(true)}
@@ -70,9 +70,9 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
                     >
                         <button
                             onClick={() => setIsNavOpen(!isNavOpen)}
-                            className={`btn-premium group py-2 px-6 ${isNavOpen ? 'bg-[var(--brand-navy)]' : ''}`}
+                            className={`btn-premium group py-2 px-3 sm:px-6 ${isNavOpen ? 'bg-[var(--brand-navy)]' : ''}`}
                         >
-                            <span className={`btn-premium-text !tracking-[0.2em] !text-[9px] ${isNavOpen ? '!text-white' : ''}`}>Navegación</span>
+                            <span className={`btn-premium-text !tracking-[0.2em] !text-[9px] ${isNavOpen ? '!text-white' : ''} hidden sm:block`}>Navegación</span>
                             <div className="relative z-10 flex flex-col gap-1 w-4">
                                 <motion.span animate={{ width: isNavOpen ? 16 : 12 }} className={`h-0.5 rounded-none transition-colors ${isNavOpen ? 'bg-white' : 'bg-[var(--text-primary)] group-hover:bg-white'}`} />
                                 <motion.span animate={{ width: 16 }} className={`h-0.5 rounded-none transition-colors ${isNavOpen ? 'bg-white' : 'bg-[var(--text-primary)] group-hover:bg-white'}`} />
@@ -90,9 +90,9 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
                                     transition={{ type: "spring", stiffness: 200, damping: 25 }}
                                     className={`absolute top-full right-0 ${sideMenuSections ? 'w-full sm:w-[32rem]' : 'w-64'} bg-[var(--card-bg)] backdrop-blur-3xl border border-[var(--border-color)] border-t-0 rounded-none shadow-[0_30px_100px_rgba(0,0,0,0.3)] overflow-hidden z-[100]`}
                                 >
-                                    <div className="flex divide-x divide-[var(--border-color)] h-full flex-row-reverse text-[var(--text-primary)]">
+                                    <div className="flex flex-col sm:flex-row-reverse h-full text-[var(--text-primary)] divide-y sm:divide-y-0 sm:divide-x sm:divide-x-reverse divide-[var(--border-color)]">
                                         {/* General Nav - Now on the Right */}
-                                        <div className="flex-1 p-4 overflow-y-auto max-h-[70vh] custom-scrollbar" data-lenis-prevent>
+                                        <div className="flex-1 p-4 overflow-y-auto max-h-[45vh] sm:max-h-[70vh] custom-scrollbar" data-lenis-prevent>
                                             <div className="space-y-1">
                                                 <Link
                                                     to="/"
@@ -126,9 +126,9 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
                                         {/* Sections - Now on the Left */}
                                         {sideMenuSections && (
                                             <motion.div
-                                                initial={{ width: 0, opacity: 0 }}
-                                                animate={{ width: '14rem', opacity: 1 }}
-                                                className="p-3 bg-black/10 dark:bg-white/5 flex flex-col overflow-y-auto max-h-[60vh] custom-scrollbar border-r border-white/10"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                className="p-3 bg-black/10 dark:bg-white/5 flex flex-col overflow-y-auto max-h-[45vh] sm:max-h-[70vh] custom-scrollbar w-full sm:w-[14rem]"
                                                 data-lenis-prevent
                                             >
                                                 <div className="px-2 py-1.5 mb-1 border-b border-gray-200 dark:border-white/10">
