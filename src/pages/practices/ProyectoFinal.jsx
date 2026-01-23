@@ -44,8 +44,9 @@ const ProyectoFinal = () => {
         { id: 'impacto', label: '9. Impacto Social' },
         { id: 'innovacion', label: '10. Innovación' },
         { id: 'mejoras', label: '11. Mejoras' },
-        { id: 'conclusion', label: '12. Conclusión' },
-        { id: 'recursos', label: '13. Recursos' }
+        { id: 'video-final', label: '12. Video Final' },
+        { id: 'conclusion', label: '13. Conclusión' },
+        { id: 'recursos', label: '14. Recursos' }
     ];
 
     return (
@@ -381,6 +382,7 @@ const ProyectoFinal = () => {
                                                 className="absolute inset-0 w-full h-full border-0"
                                                 allow="autoplay; fullscreen"
                                                 allowFullScreen
+                                                loading="lazy"
                                             />
                                         </div>
                                     </motion.div>
@@ -480,40 +482,50 @@ const ProyectoFinal = () => {
                     </div>
                 </section>
 
-                {/* 12. Conclusión */}
-                <section id="conclusion" className="max-w-4xl mx-auto text-center space-y-8">
-                    <div className="flex items-center justify-center gap-4 mb-6 text-center">
-                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">12. Conclusión</h2>
-                    </div>
-                    <p className="text-xl font-light italic leading-relaxed text-[var(--text-primary)]/80">
-                        "El Bastón Inteligente Alerta Sonora representa una solución tecnológica viable y socialmente relevante, demostrando cómo el uso de Arduino UNO y herramientas de fabricación digital puede contribuir al desarrollo de dispositivos de asistencia accesibles e inclusivos."
-                    </p>
-                </section>
-
-                {/* 13. Recursos */}
-                <section id="recursos" className="max-w-5xl mx-auto space-y-16">
+                {/* 12. Video Final */}
+                <section id="video-final" className="max-w-5xl mx-auto space-y-8">
                     <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400">
+                        <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
                             <Play className="w-6 h-6" />
                         </div>
-                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">13. Recursos del Proyecto</h2>
+                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">12. Video de Presentación Final</h2>
                     </div>
 
-                    {/* Resultado Final (Video Especial) */}
-                    <div className="relative rounded-[2rem] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl mb-12">
+                    <div className="relative rounded-[3rem] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl">
                         <div className="w-full aspect-video relative">
                             <iframe
                                 src={`https://drive.google.com/file/d/${driveAssets.pro_fin_video_final.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
                                 className="absolute inset-0 w-full h-full border-0"
                                 allow="autoplay; fullscreen"
                                 allowFullScreen
-                                title="Resultado Final - Bastón Inteligente"
+                                title="Video Final - Bastón Inteligente"
+                                loading="lazy"
                             />
                         </div>
-                        <div className="p-6 text-center bg-[var(--card-bg)]/50 backdrop-blur-md">
-                            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">Resultado Final</h3>
-                            <p className="text-[var(--text-secondary)]">Demostración completa del funcionamiento en entorno real.</p>
+                        <div className="p-8 text-center bg-gradient-to-t from-[var(--card-bg)] to-transparent">
+                            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Demostración Completa</h3>
+                            <p className="text-[var(--text-secondary)] text-lg">Visualización detallada del prototipo en funcionamiento y validación de sistemas.</p>
                         </div>
+                    </div>
+                </section>
+
+                {/* 13. Conclusión */}
+                <section id="conclusion" className="max-w-4xl mx-auto text-center space-y-8">
+                    <div className="flex items-center justify-center gap-4 mb-6 text-center">
+                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">13. Conclusión</h2>
+                    </div>
+                    <p className="text-xl font-light italic leading-relaxed text-[var(--text-primary)]/80">
+                        "El Bastón Inteligente Alerta Sonora representa una solución tecnológica viable y socialmente relevante, demostrando cómo el uso de Arduino UNO y herramientas de fabricación digital puede contribuir al desarrollo de dispositivos de asistencia accesibles e inclusivos."
+                    </p>
+                </section>
+
+                {/* 14. Recursos */}
+                <section id="recursos" className="max-w-5xl mx-auto space-y-16">
+                    <div className="flex items-center gap-4 mb-4">
+                        <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400">
+                            <Play className="w-6 h-6" />
+                        </div>
+                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">14. Recursos del Proyecto</h2>
                     </div>
 
                     {/* Videos Grid */}
@@ -527,8 +539,7 @@ const ProyectoFinal = () => {
                             { src: driveAssets.pro_fin_mp4_06, label: 'Video 06' },
                             { src: driveAssets.pro_fin_mp4_07, label: 'Video 07' },
                             { src: driveAssets.pro_fin_mp4_08, label: 'Video 08' },
-                            { src: driveAssets.pro_fin_mp4_09, label: 'Video 09' },
-                            { src: driveAssets.pro_fin_video_final, label: 'Video Final' }
+                            { src: driveAssets.pro_fin_mp4_09, label: 'Video 09' }
                         ].map((vid, i) => (
                             <motion.div
                                 key={i}
@@ -542,6 +553,7 @@ const ProyectoFinal = () => {
                                         allow="autoplay; fullscreen"
                                         allowFullScreen
                                         title={vid.label}
+                                        loading="lazy"
                                     />
                                 </div>
                                 <div className="p-4 text-center text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-blue-400 transition-colors">

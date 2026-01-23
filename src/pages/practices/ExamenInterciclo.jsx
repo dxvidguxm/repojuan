@@ -202,6 +202,7 @@ const ExamenInterciclo = () => {
                                     className="absolute inset-0 w-full h-full border-0"
                                     allow="autoplay"
                                     title="Proceso de Impresión"
+                                    loading="lazy"
                                 />
                             </div>
                             <div className="p-6 text-center border-t border-[var(--border-color)]">
@@ -227,6 +228,7 @@ const ExamenInterciclo = () => {
                                             className="absolute inset-0 w-full h-full border-0"
                                             allow="autoplay"
                                             title={vid.label}
+                                            loading="lazy"
                                         />
                                     </div>
                                     <div className="p-4 text-center text-[10px] font-bold uppercase tracking-widest text-[var(--text-secondary)]">{vid.label}</div>

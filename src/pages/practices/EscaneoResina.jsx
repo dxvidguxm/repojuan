@@ -149,6 +149,7 @@ const EscaneoResina = () => {
                                 src={`https://drive.google.com/file/d/${driveAssets.practica3_0_mp4.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
                                 className="absolute inset-0 w-full h-full border-0"
                                 allow="autoplay"
+                                loading="lazy"
                             />
                         </div>
                         <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import navSignature from '../assets/nav_signature.png';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Beaker, ArrowLeft } from 'lucide-react';
+import { Beaker, ArrowLeft, ChevronRight, Menu as MenuIcon, X, Rocket, Cpu, Layers, Zap, Microscope, ArrowRight, Home as HomeIcon } from 'lucide-react';
+import { practices } from '../data/navigation';
 import Typewriter from './Typewriter';
 import PageTransition from './PageTransition';
 import SideMenu from './SideMenu';
@@ -14,7 +15,9 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
     const isHome = location.pathname === '/';
 
     const [showBackToTop, setShowBackToTop] = useState(false);
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [isNavOpen, setIsNavOpen] = useState(false);
+    const mouseX = useSpring(0, { stiffness: 50, damping: 20 });
+    const mouseY = useSpring(0, { stiffness: 50, damping: 20 });
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -22,10 +25,10 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
             setShowBackToTop(window.scrollY > 400);
         };
         const handleMouseMove = (e) => {
-            setMousePosition({
-                x: (e.clientX / window.innerWidth - 0.5) * 40,
-                y: (e.clientY / window.innerHeight - 0.5) * 40
-            });
+            const x = (e.clientX / window.innerWidth - 0.5) * 40;
+            const y = (e.clientY / window.innerHeight - 0.5) * 40;
+            mouseX.set(x);
+            mouseY.set(y);
         };
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('mousemove', handleMouseMove);
@@ -62,9 +65,13 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
                     </Link>
                 </div>
                 <div className="flex items-center gap-6">
-                    <Link to="/" className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                        Inicio
-                    </Link>
+                    <button
+                        onClick={() => setIsNavOpen(true)}
+                        className="flex items-center gap-3 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300 group"
+                    >
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Navegación</span>
+                        <MenuIcon className="w-4 h-4 group-hover:rotate-180 transition-transform duration-500" />
+                    </button>
                     <ThemeToggle />
                 </div>
             </nav>
@@ -87,14 +94,14 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
             {/* Background Glows - FLUID & PARALLAX */}
             <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
                 <motion.div
-                    style={{ x: mousePosition.x * -0.5, y: mousePosition.y * -0.5 }}
+                    style={{ x: mouseX, y: mouseY }}
                     className="absolute top-0 left-1/2 -translate-x-1/2 w-[100%] h-[100%] bg-blue-600/5 rounded-full blur-[120px] animate-fluid-glow"
                 />
                 <motion.div
                     style={{
-                        x: mousePosition.x * 0.3,
-                        y: mousePosition.y * 0.3,
-                        animationDirection: 'reverse'
+                        x: mouseX,
+                        y: mouseY,
+                        rotate: 180,
                     }}
                     className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-indigo-600/5 rounded-full blur-[120px] animate-fluid-glow"
                 />

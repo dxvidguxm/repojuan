@@ -90,6 +90,7 @@ const Investigacion = () => {
                                 className="w-full h-[500px]"
                                 frameBorder="0"
                                 title="Encuesta Forms"
+                                loading="lazy"
                             />
                         </div>
                     </motion.div>
@@ -147,6 +148,7 @@ const Investigacion = () => {
                                 style={{ border: 0 }}
                                 allowFullScreen
                                 title="Dashboard Looker Studio"
+                                loading="lazy"
                             />
                         </div>
                     </div>

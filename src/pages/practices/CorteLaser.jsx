@@ -148,6 +148,7 @@ const CorteLaser = () => {
                                         src="https://drive.google.com/file/d/1CU7b1SeN-thznGyl2yFJRds7pfqqpQdx/preview?mute=1"
                                         className="absolute inset-0 w-full h-full border-0"
                                         allow="autoplay"
+                                        loading="lazy"
                                     />
                                 </div>
                             </motion.div>
@@ -162,6 +163,7 @@ const CorteLaser = () => {
                                         src={`https://drive.google.com/file/d/${driveAssets.practica4_3_mp4.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
                                         className="absolute inset-0 w-full h-full border-0"
                                         allow="autoplay"
+                                        loading="lazy"
                                     />
                                 </div>
                             </motion.div>
