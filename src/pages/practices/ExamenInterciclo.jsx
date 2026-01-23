@@ -201,12 +201,11 @@ const ExamenInterciclo = () => {
                             <div className="w-full aspect-video relative">
                                 <iframe
                                     src={`https://drive.google.com/file/d/${driveAssets.exi_new_mp4.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
-                                    className="absolute inset-0 w-full h-full border-0 pointer-events-none group-hover:pointer-events-auto transition-all"
+                                    className="absolute inset-0 w-full h-full border-0 transition-all"
                                     allow="autoplay"
                                     title="Proceso de Impresión"
                                     loading="lazy"
                                 />
-                                <div className="absolute inset-0 pointer-events-none group-hover:hidden bg-transparent z-10" />
                             </div>
                             <div className="p-6 text-center border-t border-[var(--border-color)]">
                                 <h3 className="text-sm font-orbitron font-bold uppercase tracking-widest text-[var(--brand-navy)] dark:text-blue-400">Proceso de Elaboración / Impresión</h3>
@@ -228,12 +227,11 @@ const ExamenInterciclo = () => {
                                     <div className="w-full aspect-[4/5] relative">
                                         <iframe
                                             src={`https://drive.google.com/file/d/${vid.src.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
-                                            className="absolute inset-0 w-full h-full border-0 pointer-events-none group-hover:pointer-events-auto transition-all"
+                                            className="absolute inset-0 w-full h-full border-0 transition-all"
                                             allow="autoplay"
                                             title={vid.label}
                                             loading="lazy"
                                         />
-                                        <div className="absolute inset-0 pointer-events-none group-hover:hidden bg-transparent z-10" />
                                     </div>
                                     <div className="p-4 text-center text-[10px] font-bold uppercase tracking-widest text-[var(--text-secondary)]">{vid.label}</div>
                                 </motion.div>

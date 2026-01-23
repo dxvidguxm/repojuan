@@ -394,12 +394,11 @@ const ProyectoFinal = () => {
                                         <div className="w-full aspect-video relative">
                                             <iframe
                                                 src={`https://drive.google.com/file/d/${m.video.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
-                                                className="absolute inset-0 w-full h-full border-0 pointer-events-none group-hover:pointer-events-auto transition-all"
+                                                className="absolute inset-0 w-full h-full border-0 transition-all"
                                                 allow="fullscreen"
                                                 allowFullScreen
                                                 loading="lazy"
                                             />
-                                            <div className="absolute inset-0 pointer-events-none group-hover:hidden bg-transparent z-10" />
                                         </div>
                                     </div>
                                 )}
@@ -505,13 +504,12 @@ const ProyectoFinal = () => {
                         <div className="w-full aspect-video relative">
                             <iframe
                                 src={`https://drive.google.com/file/d/${driveAssets.pro_fin_video_final.match(/\/d\/(.+?)\//)[1]}/preview`}
-                                className="absolute inset-0 w-full h-full border-0 pointer-events-none group-hover:pointer-events-auto transition-all"
+                                className="absolute inset-0 w-full h-full border-0 transition-all"
                                 allow="fullscreen"
                                 allowFullScreen
                                 title="Video Final - Bastón Inteligente"
                                 loading="lazy"
                             />
-                            <div className="absolute inset-0 pointer-events-none group-hover:hidden bg-transparent z-10" />
                         </div>
                         <div className="p-8 text-center bg-gradient-to-t from-[var(--card-bg)] to-transparent">
                             <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Demostración Completa</h3>
@@ -559,13 +557,12 @@ const ProyectoFinal = () => {
                                 <div className="w-full aspect-video relative">
                                     <iframe
                                         src={`https://drive.google.com/file/d/${vid.src.match(/\/d\/(.+?)\//)[1]}/preview?mute=1`}
-                                        className="absolute inset-0 w-full h-full border-0 pointer-events-none group-hover:pointer-events-auto transition-all"
+                                        className="absolute inset-0 w-full h-full border-0 transition-all"
                                         allow="fullscreen"
                                         allowFullScreen
                                         title={vid.label}
                                         loading="lazy"
                                     />
-                                    <div className="absolute inset-0 pointer-events-none group-hover:hidden bg-transparent z-10" />
                                 </div>
                                 <div className="p-4 text-center text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--brand-navy)] dark:group-hover:text-blue-400 transition-colors">
                                     {vid.label}
