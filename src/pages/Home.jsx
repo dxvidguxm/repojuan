@@ -99,9 +99,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                     >
-                        <h2 className="text-5xl md:text-8xl font-orbitron font-black mb-6 text-[var(--text-primary)] tracking-tighter">
-                            EXPEDIENTE <span className="text-[var(--brand-navy)] dark:text-blue-600">2026</span>
-                        </h2>
+
                         <p className="text-[var(--text-secondary)] text-lg md:text-xl font-light uppercase tracking-[0.2em] opacity-60">
                             Portafolio de Prácticas e Investigaciones
                         </p>
