@@ -267,7 +267,7 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
                                         <h4 className="font-bold text-white uppercase text-xs tracking-widest">Institución</h4>
                                         <div className="text-[10px] text-white/60 space-y-2 uppercase tracking-wider font-medium">
                                             <p>Universidad de Cuenca</p>
-                                            <p>Facultad de Ingeniería</p>
+                                            <p>Facultad de Ciencias Químicas</p>
                                         </div>
                                     </div>
                                     <div className="w-32 opacity-90 hover:opacity-100 transition-opacity">
