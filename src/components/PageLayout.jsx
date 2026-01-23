@@ -3,7 +3,7 @@ import navSignature from '../assets/nav_signature.png';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Beaker, ArrowLeft, ChevronRight, Menu as MenuIcon, X, Rocket, Cpu, Layers, Zap, Microscope, ArrowRight, Home as HomeIcon } from 'lucide-react';
-import { practices } from '../data/navigation';
+import { practices } from '../data/navigation.jsx';
 import Typewriter from './Typewriter';
 import PageTransition from './PageTransition';
 import SideMenu from './SideMenu';
@@ -76,6 +76,71 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
                 </div>
             </nav>
 
+            {/* Premium Navigation Overlay */}
+            <AnimatePresence>
+                {isNavOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[200] bg-[var(--bg-primary)]/95 backdrop-blur-2xl flex flex-col items-center justify-center p-8 md:p-20 overflow-hidden"
+                    >
+                        {/* Ambient background for overlay */}
+                        <div className="absolute inset-0 pointer-events-none opacity-30">
+                            <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-blue-600/20 blur-[150px] animate-fluid-glow" />
+                            <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-indigo-600/20 blur-[150px] animate-fluid-glow" style={{ animationDirection: 'reverse' }} />
+                        </div>
+
+                        <button
+                            onClick={() => setIsNavOpen(false)}
+                            className="absolute top-8 right-8 w-14 h-14 rounded-full bg-[var(--text-primary)]/5 border border-[var(--text-primary)]/10 flex items-center justify-center text-[var(--text-primary)] hover:bg-red-500/20 hover:text-red-400 transition-all duration-300 group z-50"
+                        >
+                            <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-500" />
+                        </button>
+
+                        <div className="max-w-7xl w-full relative z-10">
+                            <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.1 }}
+                                className="mb-16 text-center"
+                            >
+                                <h2 className="text-4xl md:text-7xl font-black font-orbitron mb-4 text-[var(--text-primary)] tracking-tighter">MAPA DEL SITIO</h2>
+                                <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full mb-4" />
+                                <p className="text-[var(--text-secondary)] text-xs md:text-sm font-bold uppercase tracking-[0.5em]">Laboratorio de Innovación & Desarrollo</p>
+                            </motion.div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-y-auto max-h-[70vh] md:max-h-none p-4 custom-scrollbar">
+                                <Link
+                                    to="/"
+                                    onClick={() => setIsNavOpen(false)}
+                                    className="p-10 rounded-3xl bg-blue-600 border border-blue-400/30 flex flex-col items-center justify-center text-white shadow-2xl hover:bg-blue-500 hover:scale-[1.02] transition-all group relative overflow-hidden"
+                                >
+                                    <div className="absolute top-4 left-4 text-[10px] font-black opacity-30">00</div>
+                                    <HomeIcon className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform duration-500" />
+                                    <span className="text-sm font-black uppercase tracking-widest">Inicio</span>
+                                </Link>
+
+                                {practices.map((item, i) => (
+                                    <Link
+                                        key={i}
+                                        to={item.path}
+                                        onClick={() => setIsNavOpen(false)}
+                                        className="p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col items-center justify-center text-[var(--text-primary)] hover:bg-white/10 hover:border-blue-500/50 hover:scale-[1.02] transition-all group relative overflow-hidden text-center"
+                                    >
+                                        <div className="absolute top-4 left-4 text-[10px] font-black opacity-20 group-hover:opacity-100 transition-opacity">0{i + 1}</div>
+                                        <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500 shadow-xl shadow-blue-500/0 group-hover:shadow-blue-500/20">
+                                            {React.cloneElement(item.icon, { className: "w-7 h-7" })}
+                                        </div>
+                                        <span className="text-xs font-black uppercase tracking-widest leading-tight group-hover:text-blue-400 transition-colors">{item.title}</span>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             {/* Back to Top Button */}
             <AnimatePresence>
                 {showBackToTop && (
@@ -138,11 +203,6 @@ const PageLayout = ({ children, title, subtitle, badge = "Engineering Lab", side
             <div className="relative z-10 bg-[var(--bg-primary)] transition-colors duration-300 shadow-2xl pb-12 mb-[500px] rounded-b-[3rem]">
                 <header className="relative pt-32 pb-12 px-8 md:px-12 z-10">
                     <div className="max-w-5xl mx-auto">
-                        {!isHome && (
-                            <Link to="/" className="inline-flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors mb-8 group text-[10px] font-bold uppercase tracking-[0.2em]">
-                                <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" /> Volver al Inicio
-                            </Link>
-                        )}
 
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}

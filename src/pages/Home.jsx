@@ -17,7 +17,7 @@ import {
 import SpotlightCard from '../components/SpotlightCard';
 import PageLayout from '../components/PageLayout';
 
-import { practices } from '../data/navigation';
+import { practices } from '../data/navigation.jsx';
 
 const containerVariants = {
     hidden: { opacity: 0 },
