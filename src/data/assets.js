@@ -51,7 +51,7 @@ export const driveAssets = {
     pro_fin_mp4_07: "https://drive.google.com/file/d/1kZc-Q2IngI87yl8CMWLHJanDudjxI38x/view?usp=drive_link",
     pro_fin_mp4_08: "https://drive.google.com/file/d/1gRPVti4wdkEkQeWL-lodkfNHwIrz06WB/view?usp=sharing",
     pro_fin_mp4_09: "https://drive.google.com/file/d/1Zw3LjE76Q7-UmVHOt1IW-g6SWDs7E0nU/view?usp=sharing",
-    pro_fin_video_final: "https://drive.google.com/file/d/1Oo0kEFZsRZ7MEM4bHWkwZgA7tdbCHvUI/view?usp=sharing",
+    pro_fin_video_final: "https://drive.google.com/file/d/12Gz8ocnGRzigGenrqwdm2ZCn49fcUnOU/view?usp=sharing",
     pro_fin_video_explicacion: "https://drive.google.com/file/d/1ymRgo3-FC0e4v05UOnuCJLeGTxJeyu1J/view?usp=sharing",
 
     // Tapon Assets (Proyecto Final)
