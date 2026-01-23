@@ -529,8 +529,8 @@ const ProyectoFinal = () => {
                             />
                         </div>
                         <div className="p-8 text-center bg-gradient-to-t from-[var(--card-bg)] to-transparent">
-                            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Explicación Detallada</h3>
-                            <p className="text-[var(--text-secondary)] text-lg">Presentación profunda de todos los puntos y componentes del Proyecto Final.</p>
+                            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Yachana Day 2026</h3>
+                            <p className="text-[var(--text-secondary)] text-lg">Bastón Inteligente</p>
                         </div>
                     </div>
                 </section>
