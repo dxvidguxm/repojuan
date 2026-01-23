@@ -516,6 +516,23 @@ const ProyectoFinal = () => {
                             <p className="text-[var(--text-secondary)] text-lg">Visualización detallada del prototipo en funcionamiento y validación de sistemas.</p>
                         </div>
                     </div>
+
+                    <div className="relative rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl group mt-8">
+                        <div className="w-full aspect-video relative">
+                            <iframe
+                                src={`https://drive.google.com/file/d/${driveAssets.pro_fin_video_explicacion.match(/\/d\/(.+?)\//)[1]}/preview`}
+                                className="absolute inset-0 w-full h-full border-0 transition-all"
+                                allow="fullscreen"
+                                allowFullScreen
+                                title="Explicación Detallada - Bastón Inteligente"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className="p-8 text-center bg-gradient-to-t from-[var(--card-bg)] to-transparent">
+                            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Explicación Detallada</h3>
+                            <p className="text-[var(--text-secondary)] text-lg">Presentación profunda de todos los puntos y componentes del Proyecto Final.</p>
+                        </div>
+                    </div>
                 </section>
 
                 {/* 13. Conclusión */}
