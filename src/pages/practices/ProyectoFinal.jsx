@@ -153,82 +153,82 @@ const ProyectoFinal = () => {
 
                     <p className="text-[var(--text-secondary)] mb-4">El bastón está dividido funcionalmente en dos zonas claramente diferenciadas:</p>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                    <div className="grid grid-cols-1 xl:grid-cols-[1fr_1.5fr_1fr] lg:grid-cols-3 gap-6 items-center">
                         {/* 3.1 Módulo Inferior */}
-                        <div className="group relative p-8 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-blue-500/30 transition-all shadow-xl">
+                        <div className="h-full group relative p-5 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-blue-500/30 transition-all shadow-xl flex flex-col">
                             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                 <ArrowRight className="w-12 h-12 text-blue-500 -rotate-45" />
                             </div>
-                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400 mb-2">3.1 Módulo Inferior <span className="text-sm font-light opacity-70 block">Zona de Detección (Punta del Bastón)</span></h3>
+                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400 mb-2">3.1 Módulo Inferior <span className="text-sm font-light opacity-70 block">Zona de Detección (Punta)</span></h3>
 
-                            <p className="text-sm text-[var(--text-secondary)] mb-6 font-medium bg-blue-500/5 p-2 rounded inline-block">
-                                Ubicado en la parte inferior del bastón, cerca del suelo.
+                            <p className="text-xs text-[var(--text-secondary)] mb-6 font-medium bg-blue-500/5 p-2 rounded inline-block">
+                                Ubicado en la parte inferior del bastón.
                             </p>
 
-                            <div className="space-y-4">
+                            <div className="space-y-4 flex-1">
                                 <div>
-                                    <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Componentes:</h4>
-                                    <ul className="space-y-2 text-sm text-[var(--text-secondary)]">
-                                        <li className="flex items-center gap-2">• Arduino Nano (controlador)</li>
+                                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Componentes:</h4>
+                                    <ul className="space-y-2 text-xs text-[var(--text-secondary)]">
+                                        <li className="flex items-center gap-2">• Arduino Nano</li>
                                         <li className="flex items-start gap-2">
                                             <span>•</span>
                                             <div>
-                                                2 Sensores Ultrasónicos (HC-SR04)
-                                                <div className="text-xs opacity-70 pl-2 mt-1 border-l border-[var(--border-color)]">
-                                                    - Uno orientado al frente<br />
-                                                    - Uno orientado hacia el suelo
+                                                2 Sensores Ultrasónicos
+                                                <div className="text-[10px] opacity-70 pl-2 mt-1 border-l border-[var(--border-color)]">
+                                                    - Frente<br />
+                                                    - Suelo
                                                 </div>
                                             </div>
                                         </li>
                                         <li className="flex items-center gap-2">• 3 Sensores Infrarrojos</li>
-                                        <li className="flex items-center gap-2">• NRF24L01 (Transmisor)</li>
+                                        <li className="flex items-center gap-2">• NRF24L01 (Tx)</li>
                                     </ul>
                                 </div>
                                 <div className="pt-4 border-t border-[var(--border-color)]">
-                                    <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Función:</h4>
-                                    <p className="text-sm text-[var(--text-secondary)]">
-                                        Detectar obstáculos, desniveles y objetos cercanos, procesar la información y enviar una señal de alerta de forma inalámbrica.
+                                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Función:</h4>
+                                    <p className="text-xs text-[var(--text-secondary)]">
+                                        Detectar obstáculos, desniveles y objetos cercanos, y transmitir alerta.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Imagen Central */}
-                        <div className="flex flex-col items-center justify-center">
-                            <div className="relative w-full max-w-sm rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] shadow-2xl group">
+                        {/* Imagen Central Aumentada */}
+                        <div className="flex flex-col items-center justify-center w-full">
+                            <div className="relative w-full rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] shadow-2xl group bg-white/5">
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 <img
                                     src="/assets/img/FINALFINAL.jpeg"
                                     alt="Diseño Físico Completo"
-                                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                                    className="w-full h-auto object-contain group-hover:scale-110 transition-transform duration-700"
                                 />
                             </div>
                         </div>
 
                         {/* 3.2 Módulo Superior */}
-                        <div className="group relative p-8 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-amber-500/30 transition-all shadow-xl">
+                        <div className="h-full group relative p-5 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-amber-500/30 transition-all shadow-xl flex flex-col">
                             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                 <Activity className="w-12 h-12 text-amber-500 -rotate-12" />
                             </div>
-                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-amber-400 mb-2">3.2 Módulo Superior <span className="text-sm font-light opacity-70 block">Zona de Alerta (Mango del Bastón)</span></h3>
+                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-amber-400 mb-2">3.2 Módulo Superior <span className="text-sm font-light opacity-70 block">Zona de Alerta (Mango)</span></h3>
 
-                            <p className="text-sm text-[var(--text-secondary)] mb-6 font-medium bg-amber-500/5 p-2 rounded inline-block">
-                                Ubicado en la parte superior del bastón, cerca de la mano y oído del usuario.
+                            <p className="text-xs text-[var(--text-secondary)] mb-6 font-medium bg-amber-500/5 p-2 rounded inline-block">
+                                Ubicado en la parte superior del bastón.
                             </p>
 
-                            <div className="space-y-4">
+                            <div className="space-y-4 flex-1">
                                 <div>
-                                    <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Componentes:</h4>
-                                    <ul className="space-y-2 text-sm text-[var(--text-secondary)]">
+                                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Componentes:</h4>
+                                    <ul className="space-y-2 text-xs text-[var(--text-secondary)]">
                                         <li className="flex items-center gap-2">• Arduino UNO</li>
-                                        <li className="flex items-center gap-2">• NRF24L01 (Receptor)</li>
+                                        <li className="flex items-center gap-2">• NRF24L01 (Rx)</li>
                                         <li className="flex items-center gap-2">• Buzzer Piezoeléctrico</li>
                                     </ul>
                                 </div>
                                 <div className="pt-4 border-t border-[var(--border-color)]">
-                                    <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Función:</h4>
-                                    <p className="text-sm text-[var(--text-secondary)]">
-                                        Recibir la información enviada desde la parte inferior del bastón y convertirla en alertas sonoras claras y diferenciadas.
+                                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Función:</h4>
+                                    <p className="text-xs text-[var(--text-secondary)]">
+                                        Recibir señal y convertirla en alertas sonoras claras.
                                     </p>
                                 </div>
                             </div>
