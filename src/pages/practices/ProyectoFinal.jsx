@@ -20,7 +20,11 @@ import {
     ArrowUpCircle,
     CheckCircle2,
     ArrowRight,
-    Home
+    Home,
+    Wifi,
+    Zap,
+    Share2,
+    Radio
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import PageLayout from '../../components/PageLayout';
@@ -39,11 +43,11 @@ const ProyectoFinal = () => {
     const sideMenuSections = [
         { id: 'intro', label: '1. Introducción' },
         { id: 'problema', label: '2. Problema' },
-        { id: 'objetivos', label: '3. Objetivos' },
-        { id: 'sistema', label: '4. Sistema' },
-        { id: 'sensores', label: '5. Sensores' },
-        { id: 'alerta', label: '6. Alerta Sonora' },
-        { id: 'electronica', label: '7. Electrónica' },
+        { id: 'fisica', label: '3. Arq. Física' },
+        { id: 'arquitectura', label: '4. Arq. General' },
+        { id: 'modulos', label: '5. Módulos y Hardware' },
+        { id: 'conexiones', label: '6. Conexiones (Pinout)' },
+        { id: 'funcionamiento', label: '7. Funcionamiento' },
         { id: 'metodologia', label: '8. Metodología' },
         { id: 'impacto', label: '9. Impacto Social' },
         { id: 'innovacion', label: '10. Innovación' },
@@ -75,15 +79,12 @@ const ProyectoFinal = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div className="space-y-6">
                             <RevealText
-                                text="Un dispositivo de asistencia tecnológica diseñado para mejorar la autonomía y seguridad de personas con discapacidad visual."
+                                text="El Bastón Inteligente con Alerta Sonora Inalámbrica es un dispositivo de asistencia tecnológica diseñado para mejorar la seguridad, orientación y autonomía de personas con discapacidad visual."
                                 className="text-xl md:text-2xl font-light leading-relaxed text-[var(--text-primary)]/80"
                             />
                             <div className="max-w-none text-[var(--text-secondary)] space-y-4">
                                 <p>
-                                    El Bastón Inteligente con Alerta Sonora es una solución innovadora que utiliza la electrónica para detectar obstáculos en el entorno y emitir alertas auditivas en tiempo real.
-                                </p>
-                                <p>
-                                    Utilizando la plataforma <strong>Arduino UNO</strong>, el sistema integra sensores ultrasónicos y de agua junto con un buzzer piezoeléctrico, proporcionando una respuesta inmediata y confiable ante posibles riesgos.
+                                    El sistema se basa en una arquitectura distribuida a lo largo del bastón, donde los sensores y el procesamiento primario se encuentran en la punta inferior, mientras que la alerta sonora se genera en la parte superior, cerca del usuario, garantizando una respuesta auditiva clara e inmediata.
                                 </p>
                             </div>
                         </div>
@@ -110,223 +111,397 @@ const ProyectoFinal = () => {
                         </div>
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">2. Planteamiento del Problema</h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="bg-[var(--card-bg)] p-8 rounded-[var(--radius-main)] border border-[var(--border-color)] shadow-xl relative overflow-hidden group">
-                            <div className="absolute top-0 left-0 w-1 h-full bg-[var(--brand-red)] opacity-50" />
-                            <h3 className="text-xl font-bold mb-4 text-[var(--brand-navy)] dark:text-blue-400">Riesgos Constantes</h3>
-                            <ul className="space-y-3 text-[var(--text-secondary)]">
-                                <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-[var(--brand-red)] shrink-0" /> Desniveles y escaleras descendentes.</li>
-                                <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-[var(--brand-red)] shrink-0" /> Superficies mojadas o charcos no detectables físicamente.</li>
-                                <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-[var(--brand-red)] shrink-0" /> Huecos en la vía pública.</li>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div className="space-y-6">
+                            <p className="text-lg text-[var(--text-primary)] font-light leading-relaxed">
+                                Las personas con discapacidad visual enfrentan <span className="text-red-400 font-bold">riesgos constantes</span> durante su desplazamiento, tales como:
+                            </p>
+                            <ul className="space-y-4">
+                                {[
+                                    "Obstáculos a nivel del suelo.",
+                                    "Huecos, escalones descendentes y desniveles.",
+                                    "Objetos pequeños o de baja altura difíciles de detectar con un bastón convencional."
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-start gap-4 p-4 rounded-xl bg-[var(--card-bg)] border border-[var(--border-color)] shadow-sm">
+                                        <div className="mt-1 w-2 h-2 rounded-full bg-red-500 shrink-0" />
+                                        <span className="text-[var(--text-secondary)]">{item}</span>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
-                        <div className="flex flex-col justify-center space-y-4">
+                        <div className="bg-gradient-to-br from-red-500/5 to-transparent p-8 rounded-[var(--radius-main)] border border-red-500/10">
+                            <p className="text-xl font-light text-[var(--text-primary)] italic mb-6">
+                                "Estos riesgos pueden provocar caídas y accidentes."
+                            </p>
                             <p className="text-[var(--text-secondary)] leading-relaxed">
-                                Estas limitaciones derivan en accidentes y caídas que afectan drásticamente la calidad de vida. El proyecto identifica la necesidad de ampliar la percepción del entorno sin interferir con el sentido del oído (más allá de las alertas necesarias) o el tacto.
+                                El proyecto busca <strong>anticipar estos peligros</strong>, proporcionando información del entorno antes de que el usuario entre en contacto directo con el obstáculo.
                             </p>
                         </div>
                     </div>
                 </section>
 
                 {/* 3. Objetivos del proyecto */}
-                <section id="objetivos" className="max-w-6xl mx-auto space-y-8">
+                {/* 3. Arquitectura Física del Sistema */}
+                <section id="fisica" className="max-w-6xl mx-auto space-y-8">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-400">
-                            <BookOpen className="w-6 h-6" />
+                            <Box className="w-6 h-6" />
                         </div>
-                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">3. Objetivos del Proyecto</h2>
+                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">3. Arquitectura Física del Sistema</h2>
                     </div>
-                    <div className="space-y-12">
-                        <div className="bg-gradient-to-r from-[var(--brand-navy)]/10 to-transparent p-8 rounded-[var(--radius-main)] border border-[var(--border-color)]">
-                            <h3 className="text-sm font-bold uppercase tracking-widest text-[var(--brand-navy)] dark:text-blue-400 mb-2">Objetivo General</h3>
-                            <p className="text-xl font-light text-[var(--text-primary)] italic">
-                                "Diseñar e implementar un bastón inteligente con alerta sonora, capaz de detectar obstáculos y comunicar el nivel de riesgo mediante sonidos, utilizando Arduino UNO."
+
+                    <p className="text-[var(--text-secondary)] mb-4">El bastón está dividido funcionalmente en dos zonas claramente diferenciadas:</p>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                        {/* 3.1 Módulo Inferior */}
+                        <div className="group relative p-8 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-blue-500/30 transition-all shadow-xl">
+                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <ArrowRight className="w-12 h-12 text-blue-500 -rotate-45" />
+                            </div>
+                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400 mb-2">3.1 Módulo Inferior <span className="text-sm font-light opacity-70 block">Zona de Detección (Punta del Bastón)</span></h3>
+
+                            <p className="text-sm text-[var(--text-secondary)] mb-6 font-medium bg-blue-500/5 p-2 rounded inline-block">
+                                Ubicado en la parte inferior del bastón, cerca del suelo.
                             </p>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {[
-                                "Implementar sensores ultrasónicos para detección.",
-                                "Procesar información mediante microcontrolador.",
-                                "Emitir alertas auditivas proporcionales a la distancia.",
-                                "Diseñar estructura física mediante impresión 3D.",
-                                "Validar el funcionamiento mediante pruebas."
-                            ].map((obj, i) => (
-                                <div key={i} className="flex gap-4 p-4 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)]">
-                                    <div className="text-[var(--brand-navy)] dark:text-blue-400 font-black">0{i + 1}</div>
-                                    <p className="text-sm text-[var(--text-secondary)]">{obj}</p>
+
+                            <div className="space-y-4">
+                                <div>
+                                    <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Componentes:</h4>
+                                    <ul className="space-y-2 text-sm text-[var(--text-secondary)]">
+                                        <li className="flex items-center gap-2">• Arduino Nano (controlador)</li>
+                                        <li className="flex items-start gap-2">
+                                            <span>•</span>
+                                            <div>
+                                                2 Sensores Ultrasónicos (HC-SR04)
+                                                <div className="text-xs opacity-70 pl-2 mt-1 border-l border-[var(--border-color)]">
+                                                    - Uno orientado al frente<br />
+                                                    - Uno orientado hacia el suelo
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li className="flex items-center gap-2">• 3 Sensores Infrarrojos</li>
+                                        <li className="flex items-center gap-2">• NRF24L01 (Transmisor)</li>
+                                    </ul>
                                 </div>
-                            ))}
+                                <div className="pt-4 border-t border-[var(--border-color)]">
+                                    <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Función:</h4>
+                                    <p className="text-sm text-[var(--text-secondary)]">
+                                        Detectar obstáculos, desniveles y objetos cercanos, procesar la información y enviar una señal de alerta de forma inalámbrica.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Imagen Central */}
+                        <div className="flex flex-col items-center justify-center">
+                            <div className="relative w-full max-w-sm rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] shadow-2xl group">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <img
+                                    src="/assets/img/FINALFINAL.jpeg"
+                                    alt="Diseño Físico Completo"
+                                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
+                            </div>
+                        </div>
+
+                        {/* 3.2 Módulo Superior */}
+                        <div className="group relative p-8 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-amber-500/30 transition-all shadow-xl">
+                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <Activity className="w-12 h-12 text-amber-500 -rotate-12" />
+                            </div>
+                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-amber-400 mb-2">3.2 Módulo Superior <span className="text-sm font-light opacity-70 block">Zona de Alerta (Mango del Bastón)</span></h3>
+
+                            <p className="text-sm text-[var(--text-secondary)] mb-6 font-medium bg-amber-500/5 p-2 rounded inline-block">
+                                Ubicado en la parte superior del bastón, cerca de la mano y oído del usuario.
+                            </p>
+
+                            <div className="space-y-4">
+                                <div>
+                                    <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Componentes:</h4>
+                                    <ul className="space-y-2 text-sm text-[var(--text-secondary)]">
+                                        <li className="flex items-center gap-2">• Arduino UNO</li>
+                                        <li className="flex items-center gap-2">• NRF24L01 (Receptor)</li>
+                                        <li className="flex items-center gap-2">• Buzzer Piezoeléctrico</li>
+                                    </ul>
+                                </div>
+                                <div className="pt-4 border-t border-[var(--border-color)]">
+                                    <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-primary)] mb-2">Función:</h4>
+                                    <p className="text-sm text-[var(--text-secondary)]">
+                                        Recibir la información enviada desde la parte inferior del bastón y convertirla en alertas sonoras claras y diferenciadas.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* 4. Descripción general del sistema */}
-                <section id="sistema" className="max-w-6xl mx-auto space-y-8">
-                    <div className="mb-6">
-                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">4. Descripción General del Sistema</h2>
+                {/* 4. Arquitectura General del Sistema */}
+                <section id="arquitectura" className="max-w-6xl mx-auto space-y-8">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                            <Layers className="w-6 h-6" />
+                        </div>
+                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">4. Arquitectura General del Sistema</h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-4">
-                            <p className="text-[var(--text-secondary)]">El dispositivo integra múltiples componentes para una detección de 360° en la trayectoria frontal del usuario:</p>
-                            <ul className="space-y-2">
-                                {[
-                                    { item: "Controlador", desc: "Arduino UNO como cerebro central." },
-                                    { item: "Sensores", desc: "Ultrasónicos y de agua estratégicos." },
-                                    { item: "Salida", desc: "Buzzer para avisos sonoros dinámicos." },
-                                    { item: "Estructura", desc: "Diseño mecánico fabricado en 3D." }
-                                ].map((sys, i) => (
-                                    <li key={i} className="flex gap-3 text-sm">
-                                        <span className="font-bold text-blue-400 text-nowrap">{sys.item}:</span>
-                                        <span className="text-[var(--text-secondary)]">{sys.desc}</span>
+
+                    <div className="bg-[var(--card-bg)] p-8 rounded-[var(--radius-main)] border border-[var(--border-color)] shadow-xl relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-32 bg-[var(--brand-navy)]/5 rounded-full blur-3xl -z-10" />
+
+                        <p className="text-[var(--text-secondary)] text-lg mb-8 leading-relaxed">
+                            El sistema funciona bajo una <strong className="text-[var(--text-primary)]">arquitectura distribuida e inalámbrica</strong>, dividida en dos módulos físicos independientes que se comunican por radiofrecuencia (2.4 GHz). Esto permite flexibilidad, escalabilidad y una clara separación entre la detección y la alerta.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+                            {/* Connector Line (Desktop) */}
+                            <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                                <div className="bg-[var(--card-bg)] p-2 rounded-full border border-[var(--border-color)] shadow-lg">
+                                    <Wifi className="w-6 h-6 text-[var(--brand-navy)] animate-pulse" />
+                                </div>
+                            </div>
+
+                            {/* Módulo Detección */}
+                            <div className="p-6 rounded-2xl bg-[var(--brand-navy)]/5 border border-[var(--brand-navy)]/20 hover:border-[var(--brand-navy)]/50 transition-colors group">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="p-2 bg-blue-500/20 text-blue-400 rounded-lg">
+                                        <Cpu className="w-5 h-5" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-[var(--text-primary)]">Módulo de Detección (Emisor)</h3>
+                                </div>
+                                <ul className="space-y-3 text-sm text-[var(--text-secondary)]">
+                                    <li className="flex items-start gap-2">
+                                        <ArrowRight className="w-4 h-4 mt-0.5 text-blue-400" />
+                                        <span>Ubicado en el área a monitorear.</span>
                                     </li>
-                                ))}
-                            </ul>
+                                    <li className="flex items-start gap-2">
+                                        <ArrowRight className="w-4 h-4 mt-0.5 text-blue-400" />
+                                        <span>Lee continuamente los sensores (Ultrasónicos e IR).</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <ArrowRight className="w-4 h-4 mt-0.5 text-blue-400" />
+                                        <span>Procesa la información y transmite el estado.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Módulo Alerta */}
+                            <div className="p-6 rounded-2xl bg-amber-500/5 border border-amber-500/20 hover:border-amber-500/50 transition-colors group">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="p-2 bg-amber-500/20 text-amber-500 rounded-lg">
+                                        <AlertTriangle className="w-5 h-5" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-[var(--text-primary)]">Módulo de Alerta (Receptor)</h3>
+                                </div>
+                                <ul className="space-y-3 text-sm text-[var(--text-secondary)]">
+                                    <li className="flex items-start gap-2">
+                                        <ArrowRight className="w-4 h-4 mt-0.5 text-amber-500" />
+                                        <span>Recibe la señal inalámbrica remota.</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <ArrowRight className="w-4 h-4 mt-0.5 text-amber-500" />
+                                        <span>Gestiona la activación de la alarma sonora.</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <ArrowRight className="w-4 h-4 mt-0.5 text-amber-500" />
+                                        <span>Totalmente independiente del detector.</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            className="relative group p-4 rounded-[var(--radius-main)] bg-[var(--brand-navy)]/5 border border-[var(--border-color)] flex items-center justify-center overflow-hidden"
-                        >
-                            <div className="absolute inset-0 bg-[var(--brand-navy)]/10 blur-[80px] group-hover:bg-[var(--brand-navy)]/20 transition-colors -z-10" />
-                            <img
-                                src="/assets/img/proyecto_final/desceripcion_sistema.jpeg"
-                                alt="Descripción del Sistema"
-                                className="w-full max-w-sm mx-auto h-auto rounded-xl shadow-xl group-hover:scale-105 transition-transform duration-500"
-                            />
-                        </motion.div>
                     </div>
                 </section>
 
-                {/* 5. Sensores y principio de funcionamiento */}
-                <section id="sensores" className="max-w-6xl mx-auto space-y-12">
+                {/* 5. Descripción de Módulos */}
+                <section id="modulos" className="max-w-6xl mx-auto space-y-8">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
                             <Cpu className="w-6 h-6" />
                         </div>
-                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">5. Sensores y Funcionamiento</h2>
+                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">5. Módulos y Hardware</h2>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div className="space-y-6">
-                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">Ultrasónicos (HC-SR04)</h3>
-                            <div className="bg-[var(--card-bg)] p-6 rounded-[var(--radius-main)] border border-[var(--border-color)] space-y-4 shadow-xl">
-                                <img
-                                    src="/assets/img/proyecto_final/HC-SRO4.jfif"
-                                    alt="Sensor HC-SR04"
-                                    className="w-full h-48 object-cover rounded-xl border border-[var(--border-color)]"
-                                />
-                                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                                    Emiten pulsos de alta frecuencia (40 kHz). Al reflejarse en un objeto, el eco regresa y el sistema calcula la distancia basándose en el tiempo de vuelo del pulso. El sensor inferior se enfoca específicamente en la detección de huecos.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="space-y-6">
-                            <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">Sensor de Agua</h3>
-                            <div className="bg-[var(--card-bg)] p-6 rounded-[var(--radius-main)] border border-[var(--border-color)] space-y-4 shadow-xl">
-                                <img
-                                    src="/assets/img/proyecto_final/SENSOR_AGUA.jfif"
-                                    alt="Sensor de Agua"
-                                    className="w-full h-48 object-cover rounded-xl border border-[var(--border-color)]"
-                                />
-                                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                                    Compuesto por pistas conductoras. Al entrar en contacto con agua, se cierra el circuito permitiendo el paso de corriente, lo que Arduino interpreta como presencia de charcos, alertando al usuario antes de dar el paso.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* 6. Sistema de alerta sonora (Buzzer) */}
-                <section id="alerta" className="max-w-6xl mx-auto space-y-8">
-                    <div className="flex items-center gap-4 mb-6">
-                        <div className="w-12 h-12 rounded-2xl bg-yellow-500/10 flex items-center justify-center text-yellow-400">
-                            <Activity className="w-6 h-6" />
-                        </div>
-                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">6. Sistema de Alerta Sonora</h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
-                        <div className="space-y-4">
-                            <p className="text-[var(--text-secondary)] leading-relaxed">
-                                El sistema de aviso utiliza un buzzer piezoeléctrico, encargado de transmitir información al usuario mediante sonido. El dispositivo convierte señales eléctricas del Arduino en ondas sonoras perceptibles.
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {/* Arduino Nano */}
+                        <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] space-y-4 hover:shadow-lg transition-all">
+                            <h3 className="font-bold text-lg text-cyan-400">Arduino Nano</h3>
+                            <p className="text-sm text-[var(--text-secondary)]">
+                                El <strong>"Cerebro de Detección"</strong>. Seleccionado por su tamaño compacto para sistemas embebidos. Lee sensores, decide si hay alerta y envía datos.
                             </p>
                         </div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            className="rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] shadow-2xl bg-[var(--card-bg)]"
-                        >
-                            <img
-                                src="/assets/img/proyecto_final/arduino-buzzer-module.jpg"
-                                alt="Módulo Buzzer Arduino"
-                                className="w-full h-auto"
-                            />
-                        </motion.div>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {[
-                            { title: "Obstáculo Lejano", alert: "Sonido lento", accent: "from-emerald-500 to-emerald-400" },
-                            { title: "Obstáculo Cercano", alert: "Sonido intermitente", accent: "from-amber-500 to-amber-400" },
-                            { title: "Peligro Inmediato", alert: "Sonido continuo", accent: "from-rose-500 to-rose-400" }
-                        ].map((alert, i) => (
-                            <div key={i} className="relative group p-8 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] text-center space-y-4 hover:shadow-xl transition-all overflow-hidden">
-                                {/* Subtle Luxury Accent Bar */}
-                                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${alert.accent} opacity-50`} />
+                        {/* Arduino Uno */}
+                        <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] space-y-4 hover:shadow-lg transition-all">
+                            <h3 className="font-bold text-lg text-blue-400">Arduino Uno</h3>
+                            <p className="text-sm text-[var(--text-secondary)]">
+                                La <strong>"Unidad de Salida"</strong>. Su simplicidad y robustez garantizan estabilidad para recibir datos y activar el buzzer de alerta.
+                            </p>
+                        </div>
 
-                                <h4 className="font-orbitron font-bold uppercase text-[10px] tracking-[0.2em] text-[var(--text-secondary)]">{alert.title}</h4>
-                                <div className="flex justify-center">
-                                    <div className="p-4 rounded-xl bg-gradient-to-br bg-opacity-10 flex items-center justify-center">
-                                        <Play className="w-5 h-5" />
-                                    </div>
-                                </div>
-                                <p className="text-sm font-black text-[var(--text-primary)] tracking-tight">{alert.alert}</p>
+                        {/* NRF24L01 */}
+                        <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] space-y-4 hover:shadow-lg transition-all relative overflow-hidden">
+                            <div className="absolute -right-4 -top-4 bg-yellow-500/10 w-24 h-24 rounded-full blur-xl" />
+                            <div className="flex justify-between items-start">
+                                <h3 className="font-bold text-lg text-yellow-500">NRF24L01</h3>
+                                <Wifi className="w-4 h-4 text-yellow-500" />
                             </div>
-                        ))}
+                            <p className="text-sm text-[var(--text-secondary)]">
+                                Transceptor de radiofrecuencia (2.4 GHz). Comunicación SPI bidireccional y bajo consumo.
+                            </p>
+                            <div className="flex items-center gap-2 text-xs font-bold text-red-400 bg-red-500/10 p-2 rounded-lg">
+                                <Zap className="w-3 h-3" />
+                                ¡Atención! Funciona estrictamente a 3.3V.
+                            </div>
+                        </div>
+
+                        {/* Sensores Ultrasónicos */}
+                        <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] space-y-4 hover:shadow-lg transition-all col-span-1 md:col-span-2 lg:col-span-1">
+                            <h3 className="font-bold text-lg text-emerald-400">Sensores HC-SR04 (x2)</h3>
+                            <p className="text-sm text-[var(--text-secondary)]">
+                                Utilizan ultrasonido para medir distancia (Ecolocalización). Detectan objetos en un rango definido (ej. &lt; 25 cm). Se usan 2 para ampliar el campo visual.
+                            </p>
+                        </div>
+
+                        {/* Sensores IR */}
+                        <div className="p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] space-y-4 hover:shadow-lg transition-all col-span-1 md:col-span-2">
+                            <h3 className="font-bold text-lg text-purple-400">Sensores Infrarrojos (x3)</h3>
+                            <div className="flex flex-col md:flex-row gap-4 items-center">
+                                <p className="text-sm text-[var(--text-secondary)] flex-1">
+                                    Detectan objetos mediante reflexión de luz IR. Ideales para una detección rápida y muy cercana, complementando a los ultrasónicos. Emiten una señal digital (HIGH/LOW).
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
-                {/* 7. Electrónica y conexiones */}
-                <section id="electronica" className="max-w-6xl mx-auto space-y-8">
-                    <div className="mb-6">
-                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">7. Electrónica y Conexiones</h2>
+                {/* 6. Conexiones */}
+                <section id="conexiones" className="max-w-6xl mx-auto space-y-8">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-12 h-12 rounded-2xl bg-gray-500/10 flex items-center justify-center text-gray-400">
+                            <Share2 className="w-6 h-6" />
+                        </div>
+                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">6. Diagrama de Conexiones</h2>
                     </div>
-                    <div className="bg-[var(--card-bg)] p-8 rounded-[var(--radius-main)] border border-[var(--border-color)]">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                            <div className="space-y-6">
-                                <h3 className="text-xl font-bold text-[var(--brand-navy)] dark:text-blue-400">Configuración Central</h3>
-                                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">Arduino UNO gestiona las señales de disparo a los sensores y procesa la lógica de salida PWM para el buzzer piezoeléctrico.</p>
-                                <ul className="space-y-2 text-xs font-mono">
-                                    <li className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand-navy)]" />
-                                        VCC/GND: Alimentación central.
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand-navy)]" />
-                                        Trigger/Echo: Pines ultrasónicos.
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand-navy)]" />
-                                        Analog In: Lectura sensor agua.
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand-navy)]" />
-                                        PWM Out: Control de frecuencia buzzer.
-                                    </li>
-                                </ul>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        {/* Tabla Sensores -> Nano */}
+                        <div className="bg-[var(--card-bg)] rounded-[var(--radius-main)] border border-[var(--border-color)] overflow-hidden">
+                            <div className="p-4 bg-[var(--brand-navy)]/5 border-b border-[var(--border-color)]">
+                                <h3 className="font-bold text-[var(--text-primary)] flex items-center gap-2">
+                                    <Cpu className="w-4 h-4 text-cyan-400" />
+                                    Sensores <ArrowRight className="w-3 h-3" /> Arduino Nano
+                                </h3>
                             </div>
-                            <div className="flex items-center justify-center">
-                                <motion.div
-                                    whileHover={{ scale: 1.05 }}
-                                    className="relative group p-2 rounded-xl bg-[var(--brand-navy)]/5 border border-[var(--border-color)]"
-                                >
-                                    <img
-                                        src="/assets/img/proyecto_final/arduino.jfif"
-                                        alt="Arduino Central"
-                                        className="w-full h-auto rounded-xl shadow-2xl"
-                                    />
-                                </motion.div>
+                            <div className="p-6">
+                                <table className="w-full text-sm text-left">
+                                    <thead>
+                                        <tr className="border-b border-[var(--border-color)] text-[var(--text-secondary)]">
+                                            <th className="pb-3 font-medium">Componente</th>
+                                            <th className="pb-3 font-medium">Pines</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-[var(--text-primary)]">
+                                        <tr className="border-b border-[var(--border-color)]/50">
+                                            <td className="py-3">HC-SR04 #1</td>
+                                            <td className="py-3 font-mono text-xs text-cyan-400">TRIG → D10, ECHO → D2</td>
+                                        </tr>
+                                        <tr className="border-b border-[var(--border-color)]/50">
+                                            <td className="py-3">HC-SR04 #2</td>
+                                            <td className="py-3 font-mono text-xs text-cyan-400">TRIG → D3, ECHO → D4</td>
+                                        </tr>
+                                        <tr className="border-b border-[var(--border-color)]/50">
+                                            <td className="py-3">Sensor IR #1</td>
+                                            <td className="py-3 font-mono text-xs text-purple-400">Salida → D5</td>
+                                        </tr>
+                                        <tr className="border-b border-[var(--border-color)]/50">
+                                            <td className="py-3">Sensor IR #2</td>
+                                            <td className="py-3 font-mono text-xs text-purple-400">Salida → D6</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="py-3">Sensor IR #3</td>
+                                            <td className="py-3 font-mono text-xs text-purple-400">Salida → D9</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
+
+                        {/* Tabla NRF24L01 */}
+                        <div className="bg-[var(--card-bg)] rounded-[var(--radius-main)] border border-[var(--border-color)] overflow-hidden">
+                            <div className="p-4 bg-[var(--brand-navy)]/5 border-b border-[var(--border-color)]">
+                                <h3 className="font-bold text-[var(--text-primary)] flex items-center gap-2">
+                                    <Radio className="w-4 h-4 text-yellow-500" />
+                                    NRF24L01 (SPI)
+                                </h3>
+                            </div>
+                            <div className="p-6">
+                                <table className="w-full text-sm text-left">
+                                    <thead>
+                                        <tr className="border-b border-[var(--border-color)] text-[var(--text-secondary)]">
+                                            <th className="pb-3 font-medium">Señal NRF</th>
+                                            <th className="pb-3 font-medium">Pin Arduino</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-[var(--text-primary)]">
+                                        <tr className="border-b border-[var(--border-color)]/50">
+                                            <td className="py-3">CE / CSN</td>
+                                            <td className="py-3 font-mono text-xs">D7 / D8</td>
+                                        </tr>
+                                        <tr className="border-b border-[var(--border-color)]/50">
+                                            <td className="py-3">MOSI / MISO</td>
+                                            <td className="py-3 font-mono text-xs">D11 / D12</td>
+                                        </tr>
+                                        <tr className="border-b border-[var(--border-color)]/50">
+                                            <td className="py-3">SCK</td>
+                                            <td className="py-3 font-mono text-xs">D13</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="py-3 font-bold text-yellow-500">VCC</td>
+                                            <td className="py-3 font-bold text-red-500 bg-red-500/10 px-2 rounded w-fit">3.3V (NO 5V)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* 7. Funcionamiento */}
+                <section id="funcionamiento" className="max-w-6xl mx-auto space-y-8">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-400">
+                            <Activity className="w-6 h-6" />
+                        </div>
+                        <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">7. Funcionamiento Paso a Paso</h2>
+                    </div>
+
+                    <div className="relative">
+                        {/* Vertical Line */}
+                        <div className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-[var(--border-color)] md:left-1/2 md:-translate-x-1/2" />
+
+                        <div className="space-y-8">
+                            {[
+                                { step: 1, title: "Monitoreo", desc: "Los sensores (HC-SR04 y IR) escanean el entorno constantemente.", align: "left" },
+                                { step: 2, title: "Lectura", desc: "El Arduino Nano lee las señales de todos los sensores.", align: "right" },
+                                { step: 3, title: "Detección", desc: "Si un objeto entra en el umbral (<25cm), se activa la variable de alerta.", align: "left" },
+                                { step: 4, title: "Transmisión", desc: "El estado de alerta se envía inalámbricamente por el NRF24L01.", align: "right" },
+                                { step: 5, title: "Recepción", desc: "El Arduino Uno recibe la señal enviada por el detector.", align: "left" },
+                                { step: 6, title: "Acción", desc: "Se activa el Buzzer mientras persista la alerta.", align: "right" },
+                                { step: 7, title: "Restauración", desc: "Al desaparecer el objeto, el sistema vuelve al estado normal.", align: "left" },
+                            ].map((item, i) => (
+                                <div key={i} className={`relative flex items-center gap-8 ${item.align === 'right' ? 'md:flex-row-reverse' : ''}`}>
+                                    {/* Number Node */}
+                                    <div className="relative z-10 w-14 h-14 rounded-full bg-[var(--card-bg)] border-2 border-[var(--brand-navy)] flex items-center justify-center font-bold text-[var(--brand-navy)] shadow-lg shrink-0 dark:text-blue-400 dark:border-blue-400">
+                                        {item.step}
+                                    </div>
+
+                                    {/* Content Card */}
+                                    <div className="flex-1 p-6 rounded-[var(--radius-main)] bg-[var(--card-bg)] border border-[var(--border-color)] shadow-md hover:border-[var(--brand-navy)]/30 transition-all">
+                                        <h4 className="font-bold text-[var(--text-primary)] mb-1">{item.title}</h4>
+                                        <p className="text-sm text-[var(--text-secondary)]">{item.desc}</p>
+                                    </div>
+                                    <div className="hidden md:block flex-1" />
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </section>
@@ -503,7 +678,7 @@ const ProyectoFinal = () => {
                     <div className="relative rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl group">
                         <div className="w-full aspect-video relative">
                             <iframe
-                                src={`https://drive.google.com/file/d/${driveAssets.pro_fin_video_final.match(/\/d\/(.+?)\//)[1]}/preview`}
+                                src="https://drive.google.com/file/d/1QWzEj7k2sgu9UTkz45DPandt6WmNoYO3/preview"
                                 className="absolute inset-0 w-full h-full border-0 transition-all"
                                 allow="fullscreen"
                                 allowFullScreen
@@ -539,8 +714,11 @@ const ProyectoFinal = () => {
                 {/* 13. Conclusión */}
                 <section id="conclusion" className="conclusion-standard max-w-6xl mx-auto">
                     <h2>13. Conclusión</h2>
+                    <p className="mb-4">
+                        "El Bastón Inteligente con Alerta Sonora Inalámbrica presenta una solución eficiente, segura y ergonómica, al distribuir sus componentes a lo largo del bastón de manera estratégica.
+                    </p>
                     <p>
-                        "El Bastón Inteligente Alerta Sonora representa una solución tecnológica viable y socialmente relevante, demostrando cómo el uso de Arduino UNO y herramientas de fabricación digital puede contribuir al desarrollo de dispositivos de asistencia accesibles e inclusivos."
+                        La separación entre detección inferior y alerta superior mejora la experiencia del usuario, reduce interferencias y demuestra el potencial de la electrónica aplicada a dispositivos de asistencia inclusivos."
                     </p>
                 </section>
 
