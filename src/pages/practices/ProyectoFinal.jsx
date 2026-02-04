@@ -187,6 +187,41 @@ const ProyectoFinal = () => {
                             <p className="text-white text-lg font-light">Visualización del Contexto del Problema</p>
                         </div>
                     </motion.div>
+
+                    {/* Modelo Kano Images */}
+                    <div className="flex flex-col gap-12 mt-12">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="relative rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-xl group"
+                        >
+                            <div className="p-4 border-b border-[var(--border-color)] bg-blue-500/5 flex items-center gap-2">
+                                <ImageIcon className="w-5 h-5 text-blue-400" />
+                                <h3 className="font-bold text-[var(--text-primary)]">Modelo Kano</h3>
+                            </div>
+                            <img
+                                src="/assets/docs/Modelo Kano.jpeg"
+                                alt="Modelo Kano"
+                                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="relative rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-xl group"
+                        >
+                            <div className="p-4 border-b border(--border-color)] bg-purple-500/5 flex items-center gap-2">
+                                <ImageIcon className="w-5 h-5 text-purple-400" />
+                                <h3 className="font-bold text-[var(--text-primary)]">Tabla del Modelo Kano</h3>
+                            </div>
+                            <img
+                                src="/assets/docs/TABLA DEL MODELO KANO.jpeg"
+                                alt="Tabla del Modelo Kano"
+                                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
+                        </motion.div>
+                    </div>
                 </section>
 
                 {/* 3. Objetivos del proyecto */}
