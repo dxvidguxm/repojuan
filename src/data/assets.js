@@ -58,5 +58,7 @@ export const driveAssets = {
     tapon_blend: "https://drive.google.com/file/d/1Kb3Evt3QmlbsSBH43lehXdxQpCxvr6SI/view?usp=sharing",
     tapon_stl: "https://drive.google.com/file/d/1ZlVtGhbZdls7kas2uQxfSoq4AFmjIBug/view?usp=sharing",
     mango_baston_stl: "https://drive.google.com/file/d/1cEYdI72vJOLQvTfNkxtiqNCIMc_ZBlQe/view?usp=sharing",
-    baston_completo_stl: "https://drive.google.com/file/d/1kMcDrfxX1UXcqjCUjmDNe5U60KSIWkJ8/view?usp=sharing"
+    baston_completo_stl: "https://drive.google.com/file/d/1kMcDrfxX1UXcqjCUjmDNe5U60KSIWkJ8/view?usp=sharing",
+    caja_superior_stl: "https://drive.google.com/file/d/1l5im3i_wADj680DmXBf22MiZ3_tWoD4e/view?usp=sharing",
+    caja_inferior_stl: "https://drive.google.com/file/d/1oC3geHpCnF5vvtW7evv9Se-DoG4qM9hQ/view?usp=sharing"
 };

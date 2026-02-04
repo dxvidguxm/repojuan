@@ -111,6 +111,39 @@ const ProyectoFinal = () => {
                         </div>
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">2. Planteamiento del Problema</h2>
                     </div>
+                    <div className="grid grid-cols-1 gap-8 mb-12">
+                        {/* Google Form */}
+                        <div className="relative rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-xl group">
+                            <div className="p-4 border-b border-[var(--border-color)] bg-purple-500/5 flex items-center gap-2">
+                                <ListChecks className="w-5 h-5 text-purple-400" />
+                                <h3 className="font-bold text-[var(--text-primary)]">Encuesta de Validación</h3>
+                            </div>
+                            <div className="w-full h-[500px] relative">
+                                <iframe
+                                    src="https://docs.google.com/forms/d/1AwG39Id_hSzjUELLBAEgDVnU-8T5fTHwYTXvwWmDAdo/viewform?embedded=true"
+                                    className="absolute inset-0 w-full h-full border-0"
+                                    title="Google Form - Encuesta de Validación"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Google Spreadsheet */}
+                        <div className="relative rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-xl group">
+                            <div className="p-4 border-b border-[var(--border-color)] bg-[var(--brand-navy)]/5 flex items-center gap-2">
+                                <FileText className="w-5 h-5 text-blue-400" />
+                                <h3 className="font-bold text-[var(--text-primary)]">Matriz de Datos</h3>
+                            </div>
+                            <div className="w-full h-[500px] relative">
+                                <iframe
+                                    src="https://docs.google.com/spreadsheets/d/1aGV0URhcFEV9x6cTQ4Z9DTj4qQSvz3wgTMrzeZICIZM/preview?gid=1741128654"
+                                    className="absolute inset-0 w-full h-full border-0"
+                                    title="Google Spreadsheet - Matriz de Datos"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-6">
@@ -139,6 +172,21 @@ const ProyectoFinal = () => {
                             </p>
                         </div>
                     </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="relative rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl group mt-12"
+                    >
+                        <img
+                            src="/assets/img/casita.jpeg"
+                            alt="Planteamiento Detalle"
+                            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                            <p className="text-white text-lg font-light">Visualización del Contexto del Problema</p>
+                        </div>
+                    </motion.div>
                 </section>
 
                 {/* 3. Objetivos del proyecto */}
@@ -150,6 +198,22 @@ const ProyectoFinal = () => {
                         </div>
                         <h2 className="text-3xl font-orbitron font-bold text-[var(--text-primary)]">3. Arquitectura Física del Sistema</h2>
                     </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="relative rounded-[var(--radius-main)] overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] shadow-2xl group mb-12"
+                    >
+                        <div className="p-4 border-b border-[var(--border-color)] bg-green-500/5 flex items-center gap-2">
+                            <BookOpen className="w-5 h-5 text-green-400" />
+                            <h3 className="font-bold text-[var(--text-primary)]">Bocetos y Diseño Preliminar</h3>
+                        </div>
+                        <img
+                            src="/assets/img/BOCETOS.jpeg"
+                            alt="Bocetos de Diseño"
+                            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                    </motion.div>
 
                     <p className="text-[var(--text-secondary)] mb-4">El bastón está dividido funcionalmente en dos zonas claramente diferenciadas:</p>
 
@@ -776,7 +840,11 @@ const ProyectoFinal = () => {
                                 { label: 'Tapón (BLEND)', icon: <FileText />, path: getDriveDirectLink(driveAssets.tapon_blend), name: 'tapon.blend' },
                                 { label: 'Tapón (STL)', icon: <Box />, path: getDriveDirectLink(driveAssets.tapon_stl), name: 'tapon.stl' },
                                 { label: 'Mango Bastón (STL)', icon: <Box />, path: getDriveDirectLink(driveAssets.mango_baston_stl), name: 'mango_baston.stl' },
-                                { label: 'Bastón Completo (STL)', icon: <Box />, path: getDriveDirectLink(driveAssets.baston_completo_stl), name: 'baston_completo.stl' }
+                                { label: 'Bastón Completo (STL)', icon: <Box />, path: getDriveDirectLink(driveAssets.baston_completo_stl), name: 'baston_completo.stl' },
+                                { label: 'Caja Superior (STL)', icon: <Box />, path: getDriveDirectLink(driveAssets.caja_superior_stl), name: 'caja_superior.stl' },
+                                { label: 'Caja Inferior (STL)', icon: <Box />, path: getDriveDirectLink(driveAssets.caja_inferior_stl), name: 'caja_inferior.stl' },
+                                { label: 'Parte Sensores (PDF)', icon: <FileText />, path: '/assets/docs/parte sensores.pdf', name: 'parte_sensores.pdf' },
+                                { label: 'Plano Bastón (PDF)', icon: <FileText />, path: '/assets/docs/plano baston.pdf', name: 'plano_baston.pdf' }
                             ].map((item, i) => (
                                 <motion.a
                                     key={i}
@@ -859,8 +927,8 @@ const ProyectoFinal = () => {
                         <Home className="relative z-10 w-5 h-5 text-[var(--text-primary)] group-hover:text-white transition-all duration-700" />
                     </button>
                 </div>
-            </div>
-        </PageLayout>
+            </div >
+        </PageLayout >
     );
 };
 
